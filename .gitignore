@@ -1,0 +1,6 @@
+.next
+out
+node_modules
+.wrangler
+.env*
+npm-debug.log*

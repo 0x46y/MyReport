@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-stone-50 text-slate-950 antialiased;
+    font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    overflow-wrap: anywhere;
+  }
+}
