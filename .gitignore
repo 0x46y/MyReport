@@ -4,3 +4,4 @@ node_modules
 .wrangler
 .env*
 npm-debug.log*
+tsconfig.tsbuildinfo
