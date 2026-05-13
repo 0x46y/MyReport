@@ -25,9 +25,9 @@ export default function Home() {
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
               className="inline-flex min-h-11 items-center justify-center rounded-md bg-white px-5 font-black text-teal-950 transition hover:bg-amber-100"
-              href="/reports"
+              href="/articles"
             >
-              Read reports
+              Browse articles
             </Link>
             <Link
               className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/80 px-5 font-black text-white transition hover:bg-white/10"
@@ -47,6 +47,12 @@ export default function Home() {
           <h2 className="text-3xl font-black tracking-normal text-slate-950 md:text-5xl">
             最近のレポートとノート
           </h2>
+          <Link
+            className="mt-5 inline-flex font-black text-teal-700 underline-offset-4 hover:underline"
+            href="/articles"
+          >
+            全記事を見る
+          </Link>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
           {featuredPosts.map((post) => (

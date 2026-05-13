@@ -47,25 +47,6 @@ export default async function ReportPage({ params }: PageProps) {
             <PostBlockView block={block} key={index} />
           ))}
         </div>
-        {post.references ? (
-          <section className="mt-14 rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-black tracking-normal text-slate-950">参考リンク</h2>
-            <ul className="mt-4 grid gap-3 text-base leading-7 text-slate-700">
-              {post.references.map((reference) => (
-                <li key={reference.href}>
-                  <a
-                    className="font-bold text-teal-700 underline-offset-4 hover:underline"
-                    href={reference.href}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    {reference.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ) : null}
       </article>
     </main>
   );
@@ -80,7 +61,7 @@ function PostBlockView({ block }: { block: PostBlock }) {
     return (
       <ul className="list-disc space-y-3 pl-6">
         {block.items.map((item) => (
-          <li key={item}>{item}</li>
+          <li key={item}>{renderInlineMarkdown(item)}</li>
         ))}
       </ul>
     );
@@ -110,7 +91,7 @@ function PostBlockView({ block }: { block: PostBlock }) {
                 <tr className="border-t border-slate-200 odd:bg-white even:bg-slate-50" key={row.join("-")}>
                   {row.map((cell) => (
                     <td className="align-top px-4 py-4 text-slate-700" key={cell}>
-                      {cell}
+                      {renderInlineMarkdown(cell)}
                     </td>
                   ))}
                 </tr>
@@ -122,5 +103,29 @@ function PostBlockView({ block }: { block: PostBlock }) {
     );
   }
 
-  return <p>{block.text}</p>;
+  return <p>{renderInlineMarkdown(block.text)}</p>;
+}
+
+function renderInlineMarkdown(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+
+  return parts.map((part) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+
+    if (!match) {
+      return part;
+    }
+
+    return (
+      <a
+        className="font-bold text-teal-700 underline-offset-4 hover:underline"
+        href={match[2]}
+        key={part}
+        rel="noreferrer"
+        target="_blank"
+      >
+        {match[1]}
+      </a>
+    );
+  });
 }

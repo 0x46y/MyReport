@@ -61,7 +61,7 @@ function PostBlockView({ block }: { block: PostBlock }) {
     return (
       <ul className="list-disc space-y-3 pl-6">
         {block.items.map((item) => (
-          <li key={item}>{item}</li>
+          <li key={item}>{renderInlineMarkdown(item)}</li>
         ))}
       </ul>
     );
@@ -91,7 +91,7 @@ function PostBlockView({ block }: { block: PostBlock }) {
                 <tr className="border-t border-slate-200 odd:bg-white even:bg-slate-50" key={row.join("-")}>
                   {row.map((cell) => (
                     <td className="align-top px-4 py-4 text-slate-700" key={cell}>
-                      {cell}
+                      {renderInlineMarkdown(cell)}
                     </td>
                   ))}
                 </tr>
@@ -103,5 +103,29 @@ function PostBlockView({ block }: { block: PostBlock }) {
     );
   }
 
-  return <p>{block.text}</p>;
+  return <p>{renderInlineMarkdown(block.text)}</p>;
+}
+
+function renderInlineMarkdown(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+
+  return parts.map((part) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+
+    if (!match) {
+      return part;
+    }
+
+    return (
+      <a
+        className="font-bold text-teal-700 underline-offset-4 hover:underline"
+        href={match[2]}
+        key={part}
+        rel="noreferrer"
+        target="_blank"
+      >
+        {match[1]}
+      </a>
+    );
+  });
 }
