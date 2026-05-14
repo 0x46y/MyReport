@@ -2,6 +2,7 @@
 title: "オブジェクトストレージ料金比較メモ: S3 / R2 / GCS / Azure Blob / B2 / Wasabi"
 date: "2026-05-12"
 excerpt: "画像、音声、動画、AI生成物を預けるときに、保存料金だけでなく egress と操作料金まで含めて選び方を整理する。"
+tags: "storage, s3, r2, cloudflare, aws, gcp, azure"
 ---
 
 画像、音声、動画、バックアップ、AI生成物などを扱うとき、どこかにファイルを置く必要が出てくる。代表的なのは Amazon S3 だが、最近は Cloudflare R2、Backblaze B2、Wasabi、Google Cloud Storage、Azure Blob Storage など選択肢がかなり多い。

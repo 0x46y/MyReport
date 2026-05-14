@@ -29,6 +29,7 @@ export type Post = {
   title: string;
   date: string;
   excerpt: string;
+  tags: string[];
   body: PostBlock[];
 };
 
@@ -97,10 +98,22 @@ function getPosts(kind: PostKind): Post[] {
         title: frontmatter.title ?? slug,
         date: frontmatter.date ?? "1970-01-01",
         excerpt: frontmatter.excerpt ?? "",
+        tags: parseTags(frontmatter.tags),
         body: parseMarkdown(markdown),
       };
     })
     .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+function parseTags(value: string | undefined) {
+  if (!value) {
+    return [];
+  }
+
+  return value
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter(Boolean);
 }
 
 function parseFrontmatter(raw: string) {

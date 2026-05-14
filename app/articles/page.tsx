@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { allPosts } from "@/lib/content";
+import ArticlesExplorer from "./ArticlesExplorer";
 
 export const metadata = {
   title: "Articles | My Report",
@@ -9,6 +9,7 @@ export const metadata = {
 export default function ArticlesPage() {
   const reportsCount = allPosts.filter((post) => post.kind === "reports").length;
   const notesCount = allPosts.filter((post) => post.kind === "notes").length;
+  const articleSummaries = allPosts.map(({ body, ...post }) => post);
 
   return (
     <main className="px-5 py-14 md:px-12 md:py-20 lg:px-24">
@@ -30,26 +31,7 @@ export default function ArticlesPage() {
         <SummaryCard label="Notes" value={notesCount} />
       </section>
 
-      <section className="grid gap-4">
-        {allPosts.map((post) => (
-          <Link
-            className="grid gap-3 rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:border-teal-500 hover:shadow-md"
-            href={`/${post.kind}/${post.slug}`}
-            key={`${post.kind}-${post.slug}`}
-          >
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="w-fit rounded-full border border-slate-200 px-3 py-1 text-xs font-black text-teal-900">
-                {post.kind === "reports" ? "Report" : "Note"}
-              </span>
-              <time className="text-sm text-slate-500" dateTime={post.date}>
-                {post.date}
-              </time>
-            </div>
-            <h2 className="text-2xl font-black tracking-normal text-slate-950">{post.title}</h2>
-            <p className="leading-8 text-slate-600">{post.excerpt}</p>
-          </Link>
-        ))}
-      </section>
+      <ArticlesExplorer posts={articleSummaries} />
     </main>
   );
 }
