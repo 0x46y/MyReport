@@ -4,7 +4,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "My Report",
-  description: "Personal technical reports, portfolio notes, and opinion essays.",
+  description:
+    "このサイトは、個人的な技術レポート、制作物、ポートフォリオ、意見記事をまとめた個人サイトです。",
 };
 
 const navItems = [
@@ -41,7 +42,9 @@ export default function RootLayout({
         </header>
         {children}
         <footer className="border-t border-slate-900/10 px-5 py-7 text-sm text-slate-500 md:px-12 lg:px-16">
-          <p>Personal publishing space for engineering, making, and opinions.</p>
+          <p>
+            このサイトは、個人的な技術レポート、制作物、ポートフォリオ、意見記事をまとめた個人サイトです。
+          </p>
         </footer>
       </body>
     </html>

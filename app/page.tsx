@@ -13,14 +13,13 @@ export default function Home() {
       >
         <div className="max-w-4xl">
           <p className="mb-3 text-xs font-black uppercase tracking-normal text-amber-200">
-            Personal technical reports and portfolio
+            Personal reports and portfolio
           </p>
           <h1 className="text-4xl font-black leading-[1.05] tracking-normal md:text-6xl lg:text-7xl">
-            試したこと、作ったもの、考えたことを一箇所に残す。
+            技術と制作の記録を、あとから読み返せる形で残す。
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-9 text-white/85">
-            技術レポート、制作物、個人的な意見の記事を同じ文脈で読める、
-            Cloudflare Workers 向けの軽い個人サイトです。
+            このサイトは、個人的な技術レポート、制作物、ポートフォリオ、意見記事をまとめた個人サイトです。
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
@@ -82,11 +81,11 @@ export default function Home() {
             Portfolio
           </p>
           <h2 className="text-3xl font-black tracking-normal text-slate-950 md:text-5xl">
-            制作物は背景ごと短くまとめる
+            制作物の目的と学びを整理する
           </h2>
           <p className="mt-5 text-lg leading-9 text-slate-600">
-            単なるリンク集ではなく、何を狙って作り、どこで詰まり、何を学んだかを
-            記録するための枠を用意しています。
+            作ったものを単なるリンク集にせず、目的、実装の判断、詰まった点、次に改善したいことまで
+            短く残しています。
           </p>
         </div>
         <div className="grid gap-4">

@@ -50,7 +50,7 @@ export const projects: Project[] = [
     name: "My Report",
     type: "Personal site",
     summary:
-      "技術レポート、ポートフォリオ、個人的なノートをまとめる静的サイト。",
+      "個人的な技術レポート、制作物、ポートフォリオ、意見記事をまとめた個人サイト。",
     points: ["Next.js App Router", "Static export", "Cloudflare Workers Assets"],
   },
   {
