@@ -34,11 +34,13 @@ export type Post = {
 };
 
 export type Project = {
+  slug: string;
   name: string;
   type: string;
   summary: string;
   points: string[];
   url?: string;
+  body?: PostBlock[];
 };
 
 const contentDirectory = path.join(process.cwd(), "content");
@@ -49,14 +51,94 @@ export const allPosts = [...reports, ...notes].sort((a, b) => b.date.localeCompa
 
 export const projects: Project[] = [
   {
+    slug: "idea-canvas-web",
     name: "Idea Canvas Web",
     type: "Interactive web app",
     summary:
       "カードを動的に並び替えながら、アイデアや検討事項をブラウザ上で整理するWebアプリ。",
     points: ["Next.js", "React", "Browser storage", "Cloudflare Workers"],
     url: "https://idea-canvas-web.ysmyapp.workers.dev/",
+    body: [
+      {
+        type: "paragraph",
+        text: "Idea Canvas Web は、アイデアや検討事項をカードとして並べ、ブラウザ上で動的に整理できるWebアプリです。単にテキストを入力して一覧表示するだけではなく、カードを対話的に動かしながら、考えを整理することを目的にしています。",
+      },
+      {
+        type: "heading",
+        text: "作ったもの",
+      },
+      {
+        type: "table",
+        headers: ["項目", "内容"],
+        rows: [
+          ["公開URL", "[https://idea-canvas-web.ysmyapp.workers.dev/](https://idea-canvas-web.ysmyapp.workers.dev/)"],
+          ["目的", "アイデアや検討事項をカードとして整理する"],
+          ["主な技術", "Next.js、React、Cloudflare Workers"],
+          ["保存方法", "ブラウザ側の保存領域を利用"],
+          ["想定用途", "アイデア整理、タスク分類、検討メモ、簡易ブレインストーミング"],
+        ],
+      },
+      {
+        type: "heading",
+        text: "Next.js と React で作った理由",
+      },
+      {
+        type: "paragraph",
+        text: "Next.js はページ構成やデプロイの見通しを立てやすく、React はカードの追加、編集、並び替えのような状態を持つUIを作りやすいです。今回のようなアプリでは、ユーザーの操作に応じて画面上のカードの並びや内容が変わるため、React の state を使って画面状態を管理する構成が自然でした。",
+      },
+      {
+        type: "heading",
+        text: "Supabase ではなくブラウザ保存にした理由",
+      },
+      {
+        type: "paragraph",
+        text: "最初は Supabase を使ってデータベースに保存する構成も考えました。ユーザーごとにデータを保存したり、ログイン機能を付けたりするなら、Supabase のようなBaaSは便利です。ただし、今回の目的は長期的にポートフォリオとして公開し続けることでした。",
+      },
+      {
+        type: "paragraph",
+        text: "無料枠の条件変更、プロジェクト停止、利用期限、認証やDB管理の手間が増えると、見せたいものに対して構成が重くなります。そのため今回は、バックエンドやDBを用意せず、ブラウザ側に保存する形を選びました。",
+      },
+      {
+        type: "table",
+        headers: ["保存方法", "メリット", "注意点"],
+        rows: [
+          ["Supabase", "複数端末同期、ログイン、共有、永続DBに向いている", "認証、DB設計、無料枠、運用管理を考える必要がある"],
+          ["ブラウザ保存", "構成が軽く、ポートフォリオとして長期公開しやすい", "端末やブラウザをまたいだ同期には向かない"],
+        ],
+      },
+      {
+        type: "heading",
+        text: "ポートフォリオとして見せたい点",
+      },
+      {
+        type: "list",
+        items: [
+          "Next.js と React で動的なWebアプリを作れること",
+          "カード型UIのような対話的な画面を構築できること",
+          "ユーザー操作に応じて状態を更新できること",
+          "Cloudflare Workers に公開して、実際に触れる形でデプロイできること",
+          "DBを使う場合と使わない場合の設計判断ができること",
+        ],
+      },
+      {
+        type: "heading",
+        text: "今後の改善案",
+      },
+      {
+        type: "list",
+        items: [
+          "カードの色やカテゴリ分け",
+          "キーワード検索",
+          "エクスポート / インポート",
+          "JSON や Markdown 形式での保存",
+          "複数キャンバスの管理",
+          "必要になった場合の Supabase 連携",
+        ],
+      },
+    ],
   },
   {
+    slug: "my-report",
     name: "My Report",
     type: "Personal site",
     summary:
@@ -64,6 +146,7 @@ export const projects: Project[] = [
     points: ["Next.js App Router", "Static export", "Cloudflare Workers Assets"],
   },
   {
+    slug: "local-research-notes",
     name: "Local Research Notes",
     type: "Writing workflow",
     summary:
@@ -71,6 +154,7 @@ export const projects: Project[] = [
     points: ["Draft first", "Short summaries", "Reusable report format"],
   },
   {
+    slug: "tool-experiments",
     name: "Tool Experiments",
     type: "Prototype archive",
     summary:
@@ -84,6 +168,10 @@ export const featuredPosts = allPosts.slice(0, 3);
 export function getPostBySlug(kind: PostKind, slug: string) {
   const collection = kind === "reports" ? reports : notes;
   return collection.find((post) => post.slug === slug);
+}
+
+export function getProjectBySlug(slug: string) {
+  return projects.find((project) => project.slug === slug);
 }
 
 function getPosts(kind: PostKind): Post[] {

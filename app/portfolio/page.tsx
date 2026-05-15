@@ -21,8 +21,9 @@ export default function PortfolioPage() {
       </div>
       <div className="grid gap-5 md:grid-cols-3">
         {projects.map((project) => (
-          <article
-            className="grid min-h-80 content-between gap-6 rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+          <Link
+            className="grid min-h-80 content-between gap-6 rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-teal-500 hover:shadow-md"
+            href={`/portfolio/${project.slug}`}
             key={project.name}
           >
             <div>
@@ -38,16 +39,13 @@ export default function PortfolioPage() {
               ))}
             </ul>
             {project.url ? (
-              <Link
+              <span
                 className="inline-flex w-fit font-black text-teal-700 underline-offset-4 hover:underline"
-                href={project.url}
-                target="_blank"
-                rel="noreferrer"
               >
-                公開ページを見る
-              </Link>
+                詳細を見る
+              </span>
             ) : null}
-          </article>
+          </Link>
         ))}
       </div>
     </main>

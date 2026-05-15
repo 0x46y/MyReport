@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { featuredPosts, projects } from "@/lib/content";
+import { featuredPosts } from "@/lib/content";
 
 export default function Home() {
   return (
@@ -87,14 +87,19 @@ export default function Home() {
             作ったものを単なるリンク集にせず、目的、実装の判断、詰まった点、次に改善したいことまで
             短く残しています。
           </p>
+          <Link
+            className="mt-5 inline-flex font-black text-teal-700 underline-offset-4 hover:underline"
+            href="/portfolio"
+          >
+            ポートフォリオ一覧を見る
+          </Link>
         </div>
-        <div className="grid gap-4">
-          {projects.slice(0, 2).map((project) => (
-            <article className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm" key={project.name}>
-              <h3 className="text-xl font-black tracking-normal text-slate-950">{project.name}</h3>
-              <p className="mt-3 leading-8 text-slate-600">{project.summary}</p>
-            </article>
-          ))}
+        <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+          <p className="text-xs font-black uppercase tracking-normal text-slate-500">Portfolio index</p>
+          <p className="mt-4 text-lg leading-9 text-slate-600">
+            制作物の詳細はポートフォリオ一覧にまとめています。各カードから、目的、使った技術、保存方式の判断、
+            今後の改善案まで確認できます。
+          </p>
         </div>
       </section>
     </main>
