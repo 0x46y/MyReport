@@ -38,6 +38,7 @@ export type Project = {
   type: string;
   summary: string;
   points: string[];
+  url?: string;
 };
 
 const contentDirectory = path.join(process.cwd(), "content");
@@ -47,6 +48,14 @@ export const notes = getPosts("notes");
 export const allPosts = [...reports, ...notes].sort((a, b) => b.date.localeCompare(a.date));
 
 export const projects: Project[] = [
+  {
+    name: "Idea Canvas Web",
+    type: "Interactive web app",
+    summary:
+      "カードを動的に並び替えながら、アイデアや検討事項をブラウザ上で整理するWebアプリ。",
+    points: ["Next.js", "React", "Browser storage", "Cloudflare Workers"],
+    url: "https://idea-canvas-web.ysmyapp.workers.dev/",
+  },
   {
     name: "My Report",
     type: "Personal site",

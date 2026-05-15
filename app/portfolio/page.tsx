@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { projects } from "@/lib/content";
 
 export const metadata = {
@@ -36,6 +37,16 @@ export default function PortfolioPage() {
                 <li key={point}>{point}</li>
               ))}
             </ul>
+            {project.url ? (
+              <Link
+                className="inline-flex w-fit font-black text-teal-700 underline-offset-4 hover:underline"
+                href={project.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                公開ページを見る
+              </Link>
+            ) : null}
           </article>
         ))}
       </div>

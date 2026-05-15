@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { getPostBySlug, reports, type PostBlock } from "@/lib/content";
+import ArticleSidebar from "@/app/components/ArticleSidebar";
+import { allPosts, getPostBySlug, reports, type PostBlock } from "@/lib/content";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -30,24 +31,27 @@ export default async function ReportPage({ params }: PageProps) {
   }
 
   return (
-    <main className="flex justify-center px-5 py-14 md:px-12 md:py-20 lg:px-24">
-      <article className="w-full max-w-3xl">
-        <p className="mb-3 text-xs font-black uppercase tracking-normal text-amber-700">
-          Technical report
-        </p>
-        <h1 className="text-4xl font-black leading-tight tracking-normal text-teal-950 md:text-6xl">
-          {post.title}
-        </h1>
-        <p className="mt-6 text-xl leading-9 text-slate-600">{post.excerpt}</p>
-        <time className="mt-5 block text-sm text-slate-500" dateTime={post.date}>
-          {post.date}
-        </time>
-        <div className="mt-10 grid gap-8 text-lg leading-10 text-slate-800">
-          {post.body.map((block, index) => (
-            <PostBlockView block={block} key={index} />
-          ))}
-        </div>
-      </article>
+    <main className="px-5 py-14 md:px-12 md:py-20 lg:px-16 xl:px-24">
+      <div className="mx-auto grid w-full max-w-[1500px] gap-10 lg:grid-cols-[minmax(0,820px)_minmax(280px,360px)] lg:justify-between lg:items-start">
+        <article className="w-full">
+          <p className="mb-3 text-xs font-black uppercase tracking-normal text-amber-700">
+            Technical report
+          </p>
+          <h1 className="text-4xl font-black leading-tight tracking-normal text-teal-950 md:text-6xl">
+            {post.title}
+          </h1>
+          <p className="mt-6 text-xl leading-9 text-slate-600">{post.excerpt}</p>
+          <time className="mt-5 block text-sm text-slate-500 lg:hidden" dateTime={post.date}>
+            {post.date}
+          </time>
+          <div className="mt-10 grid gap-8 text-lg leading-10 text-slate-800">
+            {post.body.map((block, index) => (
+              <PostBlockView block={block} key={index} />
+            ))}
+          </div>
+        </article>
+        <ArticleSidebar allPosts={allPosts} post={post} />
+      </div>
     </main>
   );
 }

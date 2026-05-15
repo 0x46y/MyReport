@@ -1,5 +1,6 @@
 import { allPosts } from "@/lib/content";
 import ArticlesExplorer from "./ArticlesExplorer";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Articles | My Report",
@@ -31,7 +32,9 @@ export default function ArticlesPage() {
         <SummaryCard label="Notes" value={notesCount} />
       </section>
 
-      <ArticlesExplorer posts={articleSummaries} />
+      <Suspense fallback={<div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm" />}>
+        <ArticlesExplorer posts={articleSummaries} />
+      </Suspense>
     </main>
   );
 }

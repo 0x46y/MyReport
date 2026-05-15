@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import type { Post } from "@/lib/content";
 
@@ -8,8 +9,9 @@ type SortOrder = "newest" | "oldest" | "title";
 type ArticleSummary = Omit<Post, "body">;
 
 export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] }) {
+  const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
-  const [selectedTag, setSelectedTag] = useState("all");
+  const [selectedTag, setSelectedTag] = useState(searchParams.get("tag") ?? "all");
   const [selectedKind, setSelectedKind] = useState("all");
   const [sortOrder, setSortOrder] = useState<SortOrder>("newest");
   const [pageSize, setPageSize] = useState(5);
