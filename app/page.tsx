@@ -8,7 +8,7 @@ export default function Home() {
         className="flex min-h-[78vh] items-center bg-cover bg-center px-5 py-20 text-white md:min-h-[calc(100vh-73px)] md:px-12 lg:px-24"
         style={{
           backgroundImage:
-            "linear-gradient(120deg, rgba(15, 23, 42, 0.88), rgba(13, 148, 136, 0.68)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=80')",
+            "linear-gradient(120deg, rgba(15, 23, 42, 0.88), rgba(13, 148, 136, 0.68)), url('/images/hero.png')",
         }}
       >
         <div className="max-w-3xl">
