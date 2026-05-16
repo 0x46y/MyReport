@@ -15,6 +15,8 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
   const [selectedKind, setSelectedKind] = useState("all");
   const [sortOrder, setSortOrder] = useState<SortOrder>("newest");
   const [pageSize, setPageSize] = useState(5);
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
   const [page, setPage] = useState(1);
 
   const tags = useMemo(
@@ -29,12 +31,14 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
       .filter((post) => {
         const matchesKind = selectedKind === "all" || post.kind === selectedKind;
         const matchesTag = selectedTag === "all" || post.tags.includes(selectedTag);
+        const matchesDateFrom = !dateFrom || post.date >= dateFrom;
+        const matchesDateTo = !dateTo || post.date <= dateTo;
         const haystack = [post.title, post.excerpt, post.date, post.kind, ...post.tags]
           .join(" ")
           .toLowerCase();
         const matchesQuery = !normalizedQuery || haystack.includes(normalizedQuery);
 
-        return matchesKind && matchesTag && matchesQuery;
+        return matchesKind && matchesTag && matchesDateFrom && matchesDateTo && matchesQuery;
       })
       .sort((a, b) => {
         if (sortOrder === "oldest") {
@@ -47,7 +51,7 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
 
         return b.date.localeCompare(a.date);
       });
-  }, [pageSize, posts, query, selectedKind, selectedTag, sortOrder]);
+  }, [dateFrom, dateTo, posts, query, selectedKind, selectedTag, sortOrder]);
 
   const totalPages = Math.max(1, Math.ceil(filteredPosts.length / pageSize));
   const currentPage = Math.min(page, totalPages);
@@ -118,6 +122,36 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
               { label: "All", value: String(posts.length) },
             ]}
           />
+        </div>
+
+        <div className="mt-4 grid gap-4 md:grid-cols-[repeat(2,minmax(180px,0.5fr))_auto] md:items-end">
+          <DateField
+            label="From"
+            onChange={(value) => {
+              setDateFrom(value);
+              resetPage();
+            }}
+            value={dateFrom}
+          />
+          <DateField
+            label="To"
+            onChange={(value) => {
+              setDateTo(value);
+              resetPage();
+            }}
+            value={dateTo}
+          />
+          <button
+            className="min-h-11 rounded-md border border-slate-300 px-4 font-black text-slate-700 transition hover:border-teal-500 hover:text-teal-700"
+            onClick={() => {
+              setDateFrom("");
+              setDateTo("");
+              resetPage();
+            }}
+            type="button"
+          >
+            Clear dates
+          </button>
         </div>
 
         <div className="mt-5 flex flex-wrap gap-2">
@@ -216,6 +250,28 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
         </button>
       </div>
     </section>
+  );
+}
+
+function DateField({
+  label,
+  onChange,
+  value,
+}: {
+  label: string;
+  onChange: (value: string) => void;
+  value: string;
+}) {
+  return (
+    <label className="grid gap-2">
+      <span className="text-xs font-black uppercase tracking-normal text-slate-500">{label}</span>
+      <input
+        className="min-h-11 rounded-md border border-slate-300 bg-white px-3 text-base text-slate-950 outline-none transition focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
+        onChange={(event) => onChange(event.target.value)}
+        type="date"
+        value={value}
+      />
+    </label>
   );
 }
 

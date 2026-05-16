@@ -137,30 +137,6 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
-    slug: "my-report",
-    name: "My Report",
-    type: "Personal site",
-    summary:
-      "個人的な技術レポート、制作物、ポートフォリオ、意見記事をまとめた個人サイト。",
-    points: ["Next.js App Router", "Static export", "Cloudflare Workers Assets"],
-  },
-  {
-    slug: "local-research-notes",
-    name: "Local Research Notes",
-    type: "Writing workflow",
-    summary:
-      "検証ログと記事の下書きをつなげるための、個人用リサーチノート運用。",
-    points: ["Draft first", "Short summaries", "Reusable report format"],
-  },
-  {
-    slug: "tool-experiments",
-    name: "Tool Experiments",
-    type: "Prototype archive",
-    summary:
-      "作り切る前の試作を、判断材料として残すための小さなアーカイブ。",
-    points: ["Prototype logs", "Decision records", "Next action notes"],
-  },
 ];
 
 export const featuredPosts = allPosts.slice(0, 3);

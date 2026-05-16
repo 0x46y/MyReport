@@ -11,12 +11,14 @@ export default function Home() {
             "linear-gradient(120deg, rgba(15, 23, 42, 0.88), rgba(13, 148, 136, 0.68)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=80')",
         }}
       >
-        <div className="max-w-4xl">
+        <div className="max-w-3xl">
           <p className="mb-3 text-xs font-black uppercase tracking-normal text-amber-200">
             Personal reports and portfolio
           </p>
-          <h1 className="text-4xl font-black leading-[1.05] tracking-normal md:text-6xl lg:text-7xl">
-            技術と制作の記録を、あとから読み返せる形で残す。
+          <h1 className="text-4xl font-black leading-[1.08] tracking-normal md:text-6xl lg:text-7xl">
+            技術と制作の記録を、
+            <br />
+            あとから読み返せる形で残す。
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-9 text-white/85">
             このサイトは、個人的な技術レポート、制作物、ポートフォリオ、意見記事をまとめた個人サイトです。
@@ -75,8 +77,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="grid gap-8 border-t border-slate-200 px-5 py-16 md:grid-cols-[0.9fr_1.1fr] md:px-12 md:py-20 lg:px-24">
-        <div>
+      <section className="border-t border-slate-200 px-5 py-16 md:px-12 md:py-20 lg:px-24">
+        <div className="max-w-3xl">
           <p className="mb-3 text-xs font-black uppercase tracking-normal text-amber-700">
             Portfolio
           </p>
@@ -84,8 +86,7 @@ export default function Home() {
             制作物の目的と学びを整理する
           </h2>
           <p className="mt-5 text-lg leading-9 text-slate-600">
-            作ったものを単なるリンク集にせず、目的、実装の判断、詰まった点、次に改善したいことまで
-            短く残しています。
+            作ったものを単なるリンク集にせず、目的や実装の判断、詰まった点や次の改善案まで残しています。
           </p>
           <Link
             className="mt-5 inline-flex font-black text-teal-700 underline-offset-4 hover:underline"
@@ -93,13 +94,6 @@ export default function Home() {
           >
             ポートフォリオ一覧を見る
           </Link>
-        </div>
-        <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-          <p className="text-xs font-black uppercase tracking-normal text-slate-500">Portfolio index</p>
-          <p className="mt-4 text-lg leading-9 text-slate-600">
-            制作物の詳細はポートフォリオ一覧にまとめています。各カードから、目的、使った技術、保存方式の判断、
-            今後の改善案まで確認できます。
-          </p>
         </div>
       </section>
     </main>
