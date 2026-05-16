@@ -102,8 +102,8 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
   }
 
   return (
-    <section className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
-      <aside className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-28">
+    <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
+      <aside className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-28 lg:order-2">
         <p className="text-xs font-black uppercase tracking-normal text-slate-500">Categories</p>
         <div className="mt-4 grid gap-2">
           <button
@@ -134,7 +134,7 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
         </div>
       </aside>
 
-      <div className="grid gap-6">
+      <div className="grid gap-6 lg:order-1">
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
         <div className="grid gap-4 lg:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(150px,0.6fr))]">
           <label className="grid gap-2">
