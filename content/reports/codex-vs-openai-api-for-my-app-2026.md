@@ -2,6 +2,7 @@
 title: "自分のアプリにAIを組み込むなら Codex か OpenAI API か"
 date: "2026-05-13"
 excerpt: "Codex App Server、Codex SDK、codex exec、Responses API、Agents SDK、ChatKit の違いを、Next.js の自作アプリに組み込む観点で整理する。"
+category: "OpenAI / AI"
 tags: "openai, codex, ai, nextjs, sdk"
 ---
 

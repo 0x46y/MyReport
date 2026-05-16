@@ -2,6 +2,7 @@
 title: "小さい道具を作ることについて"
 date: "2026-05-09"
 excerpt: "完成度よりも、日々の判断を少し軽くする道具を持つことの価値について。"
+category: "Notes"
 tags: "notes, tools"
 ---
 

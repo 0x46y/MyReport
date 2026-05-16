@@ -29,6 +29,7 @@ export type Post = {
   title: string;
   date: string;
   excerpt: string;
+  category: string;
   tags: string[];
   body: PostBlock[];
 };
@@ -171,6 +172,7 @@ function getPosts(kind: PostKind): Post[] {
         title: frontmatter.title ?? slug,
         date: frontmatter.date ?? "1970-01-01",
         excerpt: frontmatter.excerpt ?? "",
+        category: frontmatter.category ?? "Uncategorized",
         tags: parseTags(frontmatter.tags),
         body: parseMarkdown(markdown),
       };

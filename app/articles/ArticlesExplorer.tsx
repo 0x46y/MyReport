@@ -11,6 +11,7 @@ type ArticleSummary = Omit<Post, "body">;
 export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] }) {
   const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(searchParams.get("category") ?? "all");
   const [selectedTag, setSelectedTag] = useState(searchParams.get("tag") ?? "all");
   const [selectedKind, setSelectedKind] = useState("all");
   const [sortOrder, setSortOrder] = useState<SortOrder>("newest");
@@ -27,6 +28,18 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
       post.tags.forEach((tag) => {
         counts.set(tag, (counts.get(tag) ?? 0) + 1);
       });
+    });
+
+    return Array.from(counts.entries())
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => a.name.localeCompare(b.name, "ja"));
+  }, [posts]);
+
+  const categories = useMemo(() => {
+    const counts = new Map<string, number>();
+
+    posts.forEach((post) => {
+      counts.set(post.category, (counts.get(post.category) ?? 0) + 1);
     });
 
     return Array.from(counts.entries())
@@ -54,16 +67,17 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
 
     return posts
       .filter((post) => {
+        const matchesCategory = selectedCategory === "all" || post.category === selectedCategory;
         const matchesKind = selectedKind === "all" || post.kind === selectedKind;
         const matchesTag = selectedTag === "all" || post.tags.includes(selectedTag);
         const matchesDateFrom = !dateFrom || post.date >= dateFrom;
         const matchesDateTo = !dateTo || post.date <= dateTo;
-        const haystack = [post.title, post.excerpt, post.date, post.kind, ...post.tags]
+        const haystack = [post.title, post.excerpt, post.date, post.kind, post.category, ...post.tags]
           .join(" ")
           .toLowerCase();
         const matchesQuery = !normalizedQuery || haystack.includes(normalizedQuery);
 
-        return matchesKind && matchesTag && matchesDateFrom && matchesDateTo && matchesQuery;
+        return matchesCategory && matchesKind && matchesTag && matchesDateFrom && matchesDateTo && matchesQuery;
       })
       .sort((a, b) => {
         if (sortOrder === "oldest") {
@@ -76,7 +90,7 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
 
         return b.date.localeCompare(a.date);
       });
-  }, [dateFrom, dateTo, posts, query, selectedKind, selectedTag, sortOrder]);
+  }, [dateFrom, dateTo, posts, query, selectedCategory, selectedKind, selectedTag, sortOrder]);
 
   const totalPages = Math.max(1, Math.ceil(filteredPosts.length / pageSize));
   const currentPage = Math.min(page, totalPages);
@@ -88,8 +102,40 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
   }
 
   return (
-    <section className="grid gap-6">
-      <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+    <section className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
+      <aside className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-28">
+        <p className="text-xs font-black uppercase tracking-normal text-slate-500">Categories</p>
+        <div className="mt-4 grid gap-2">
+          <button
+            className={categoryButtonClass(selectedCategory === "all")}
+            onClick={() => {
+              setSelectedCategory("all");
+              resetPage();
+            }}
+            type="button"
+          >
+            <span>All</span>
+            <span>{posts.length}</span>
+          </button>
+          {categories.map((category) => (
+            <button
+              className={categoryButtonClass(selectedCategory === category.name)}
+              key={category.name}
+              onClick={() => {
+                setSelectedCategory(category.name);
+                resetPage();
+              }}
+              type="button"
+            >
+              <span>{category.name}</span>
+              <span>{category.count}</span>
+            </button>
+          ))}
+        </div>
+      </aside>
+
+      <div className="grid gap-6">
+        <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
         <div className="grid gap-4 lg:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(150px,0.6fr))]">
           <label className="grid gap-2">
             <span className="text-xs font-black uppercase tracking-normal text-slate-500">Search</span>
@@ -225,78 +271,93 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
             ))}
           </div>
         </div>
-      </div>
+        </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-slate-600">
-        <p>
-          {filteredPosts.length} 件中 {visiblePosts.length ? startIndex + 1 : 0}-
-          {Math.min(startIndex + pageSize, filteredPosts.length)} 件を表示
-        </p>
-        <p>
-          Page {currentPage} / {totalPages}
-        </p>
-      </div>
+        <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-slate-600">
+          <p>
+            {filteredPosts.length} 件中 {visiblePosts.length ? startIndex + 1 : 0}-
+            {Math.min(startIndex + pageSize, filteredPosts.length)} 件を表示
+          </p>
+          <p>
+            Page {currentPage} / {totalPages}
+          </p>
+        </div>
 
-      <div className="grid gap-4">
-        {visiblePosts.length ? (
-          visiblePosts.map((post) => (
-            <Link
-              className="grid gap-3 rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:border-teal-500 hover:shadow-md"
-              href={`/${post.kind}/${post.slug}`}
-              key={`${post.kind}-${post.slug}`}
-            >
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="w-fit rounded-full border border-slate-200 px-3 py-1 text-xs font-black text-teal-900">
-                  {post.kind === "reports" ? "Report" : "Note"}
-                </span>
-                <time className="text-sm text-slate-500" dateTime={post.date}>
-                  {post.date}
-                </time>
-              </div>
-              <h2 className="text-2xl font-black tracking-normal text-slate-950">{post.title}</h2>
-              <p className="leading-8 text-slate-600">{post.excerpt}</p>
-              {post.tags.length ? (
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <span
-                      className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600"
-                      key={tag}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+        <div className="grid gap-4">
+          {visiblePosts.length ? (
+            visiblePosts.map((post) => (
+              <Link
+                className="grid gap-3 rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:border-teal-500 hover:shadow-md"
+                href={`/${post.kind}/${post.slug}`}
+                key={`${post.kind}-${post.slug}`}
+              >
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="w-fit rounded-full border border-slate-200 px-3 py-1 text-xs font-black text-teal-900">
+                    {post.kind === "reports" ? "Report" : "Note"}
+                  </span>
+                  <span className="w-fit rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600">
+                    {post.category}
+                  </span>
+                  <time className="text-sm text-slate-500" dateTime={post.date}>
+                    {post.date}
+                  </time>
                 </div>
-              ) : null}
-            </Link>
-          ))
-        ) : (
-          <div className="rounded-lg border border-slate-200 bg-white p-8 text-center shadow-sm">
-            <p className="font-black text-slate-950">該当する記事がありません</p>
-            <p className="mt-2 text-sm text-slate-600">検索語やタグを変えて試してください。</p>
-          </div>
-        )}
-      </div>
+                <h2 className="text-2xl font-black tracking-normal text-slate-950">{post.title}</h2>
+                <p className="leading-8 text-slate-600">{post.excerpt}</p>
+                {post.tags.length ? (
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((tag) => (
+                      <span
+                        className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600"
+                        key={tag}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+              </Link>
+            ))
+          ) : (
+            <div className="rounded-lg border border-slate-200 bg-white p-8 text-center shadow-sm">
+              <p className="font-black text-slate-950">該当する記事がありません</p>
+              <p className="mt-2 text-sm text-slate-600">検索語やタグを変えて試してください。</p>
+            </div>
+          )}
+        </div>
 
-      <div className="flex flex-wrap justify-end gap-2">
-        <button
-          className="min-h-10 rounded-md border border-slate-300 px-4 font-black text-slate-700 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={currentPage <= 1}
-          onClick={() => setPage((value) => Math.max(1, value - 1))}
-          type="button"
-        >
-          Prev
-        </button>
-        <button
-          className="min-h-10 rounded-md border border-slate-300 px-4 font-black text-slate-700 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={currentPage >= totalPages}
-          onClick={() => setPage((value) => Math.min(totalPages, value + 1))}
-          type="button"
-        >
-          Next
-        </button>
+        <div className="flex flex-wrap justify-end gap-2">
+          <button
+            className="min-h-10 rounded-md border border-slate-300 px-4 font-black text-slate-700 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={currentPage <= 1}
+            onClick={() => setPage((value) => Math.max(1, value - 1))}
+            type="button"
+          >
+            Prev
+          </button>
+          <button
+            className="min-h-10 rounded-md border border-slate-300 px-4 font-black text-slate-700 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={currentPage >= totalPages}
+            onClick={() => setPage((value) => Math.min(totalPages, value + 1))}
+            type="button"
+          >
+            Next
+          </button>
+        </div>
       </div>
     </section>
   );
+}
+
+function categoryButtonClass(isActive: boolean) {
+  const base =
+    "flex w-full items-center justify-between gap-3 rounded-md border px-3 py-2 text-left text-sm font-black transition";
+
+  if (isActive) {
+    return `${base} border-teal-700 bg-teal-700 text-white`;
+  }
+
+  return `${base} border-slate-200 bg-white text-slate-700 hover:border-teal-500 hover:text-teal-700`;
 }
 
 function DateField({

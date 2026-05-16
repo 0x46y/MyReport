@@ -2,6 +2,7 @@
 title: "Cloudflare Workers に置く個人サイトの初期設計"
 date: "2026-05-11"
 excerpt: "Next.js の静的出力を Workers の Assets で配信し、記事とポートフォリオを同居させる方針を整理する。"
+category: "Web Development"
 tags: "nextjs, cloudflare, workers, portfolio"
 ---
 

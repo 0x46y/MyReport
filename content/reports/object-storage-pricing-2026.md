@@ -2,6 +2,7 @@
 title: "オブジェクトストレージ料金比較メモ: S3 / R2 / GCS / Azure Blob / B2 / Wasabi"
 date: "2026-05-12"
 excerpt: "画像、音声、動画、AI生成物を預けるときに、保存料金だけでなく egress と操作料金まで含めて選び方を整理する。"
+category: "Cloud"
 tags: "storage, s3, r2, cloudflare, aws, gcp, azure"
 ---
 

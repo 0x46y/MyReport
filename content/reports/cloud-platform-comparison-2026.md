@@ -2,6 +2,7 @@
 title: "クラウドプラットフォーム比較メモ: AWS / Azure / GCP と Vercel / Cloudflare"
 date: "2026-05-11"
 excerpt: "三大クラウドとフロントエンド・エッジ系プラットフォームを、個人開発と実務選定の観点から整理する。"
+category: "Cloud"
 tags: "cloud, aws, azure, gcp, vercel, cloudflare"
 ---
 
