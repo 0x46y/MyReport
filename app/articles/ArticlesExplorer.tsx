@@ -17,12 +17,37 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
   const [pageSize, setPageSize] = useState(5);
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
+  const [showAllTags, setShowAllTags] = useState(false);
   const [page, setPage] = useState(1);
 
-  const tags = useMemo(
-    () => Array.from(new Set(posts.flatMap((post) => post.tags))).sort((a, b) => a.localeCompare(b)),
-    [posts],
-  );
+  const tags = useMemo(() => {
+    const counts = new Map<string, number>();
+
+    posts.forEach((post) => {
+      post.tags.forEach((tag) => {
+        counts.set(tag, (counts.get(tag) ?? 0) + 1);
+      });
+    });
+
+    return Array.from(counts.entries())
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => a.name.localeCompare(b.name, "ja"));
+  }, [posts]);
+
+  const visibleTags = useMemo(() => {
+    if (showAllTags) {
+      return tags;
+    }
+
+    const topTags = tags.slice(0, 8);
+
+    if (selectedTag === "all" || topTags.some((tag) => tag.name === selectedTag)) {
+      return topTags;
+    }
+
+    const activeTag = tags.find((tag) => tag.name === selectedTag);
+    return activeTag ? [...topTags.slice(0, 7), activeTag] : topTags;
+  }, [selectedTag, showAllTags, tags]);
 
   const filteredPosts = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -154,30 +179,51 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
           </button>
         </div>
 
-        <div className="mt-5 flex flex-wrap gap-2">
-          <button
-            className={tagButtonClass(selectedTag === "all")}
-            onClick={() => {
-              setSelectedTag("all");
-              resetPage();
-            }}
-            type="button"
-          >
-            all tags
-          </button>
-          {tags.map((tag) => (
+        <div className="mt-5 rounded-md border border-slate-200 bg-slate-50 p-4">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-xs font-black uppercase tracking-normal text-slate-500">Tags</p>
+              <p className="mt-1 text-sm text-slate-600">
+                {selectedTag === "all" ? "すべてのタグを対象にしています" : `${selectedTag} で絞り込み中`}
+              </p>
+            </div>
+            {tags.length > 8 ? (
+              <button
+                className="text-sm font-black text-teal-700 underline-offset-4 hover:underline"
+                onClick={() => setShowAllTags((value) => !value)}
+                type="button"
+              >
+                {showAllTags ? "Show less" : `Show all ${tags.length}`}
+              </button>
+            ) : null}
+          </div>
+
+          <div className="flex flex-wrap gap-2">
             <button
-              className={tagButtonClass(selectedTag === tag)}
-              key={tag}
+              className={tagButtonClass(selectedTag === "all")}
               onClick={() => {
-                setSelectedTag(tag);
+                setSelectedTag("all");
                 resetPage();
               }}
               type="button"
             >
-              {tag}
+              all tags
             </button>
-          ))}
+            {visibleTags.map((tag) => (
+              <button
+                className={tagButtonClass(selectedTag === tag.name)}
+                key={tag.name}
+                onClick={() => {
+                  setSelectedTag(tag.name);
+                  resetPage();
+                }}
+                type="button"
+              >
+                {tag.name}
+                <span className="ml-1 opacity-70">({tag.count})</span>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
