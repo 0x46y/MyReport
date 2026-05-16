@@ -265,14 +265,30 @@ function DateField({
   return (
     <label className="grid gap-2">
       <span className="text-xs font-black uppercase tracking-normal text-slate-500">{label}</span>
-      <input
-        className="min-h-11 rounded-md border border-slate-300 bg-white px-3 text-base text-slate-950 outline-none transition focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
-        onChange={(event) => onChange(event.target.value)}
-        type="date"
-        value={value}
-      />
+      <span className="grid grid-cols-[minmax(0,1fr)_3.25rem] gap-2">
+        <input
+          className="min-h-11 rounded-md border border-slate-300 bg-white px-3 text-base text-slate-950 outline-none transition focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
+          inputMode="numeric"
+          onChange={(event) => onChange(event.target.value)}
+          pattern="\d{4}-\d{2}-\d{2}"
+          placeholder="2026-05-16"
+          type="text"
+          value={value}
+        />
+        <input
+          aria-label={`${label} calendar`}
+          className="min-h-11 rounded-md border border-slate-300 bg-white px-2 text-slate-700 outline-none transition focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
+          onChange={(event) => onChange(event.target.value)}
+          type="date"
+          value={isDateValue(value) ? value : ""}
+        />
+      </span>
     </label>
   );
+}
+
+function isDateValue(value: string) {
+  return /^\d{4}-\d{2}-\d{2}$/.test(value);
 }
 
 function SelectField({
