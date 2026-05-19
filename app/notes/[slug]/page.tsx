@@ -71,6 +71,27 @@ function PostBlockView({ block }: { block: PostBlock }) {
     );
   }
 
+  if (block.type === "image") {
+    return (
+      <figure className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+        <img className="w-full bg-slate-100" src={block.src} alt={block.alt} loading="lazy" />
+        {block.caption ? (
+          <figcaption className="border-t border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-600">
+            {block.caption}
+          </figcaption>
+        ) : null}
+      </figure>
+    );
+  }
+
+  if (block.type === "code") {
+    return (
+      <pre className="overflow-x-auto rounded-lg border border-slate-800 bg-slate-950 p-5 text-sm leading-7 text-slate-100 shadow-sm">
+        <code>{block.text}</code>
+      </pre>
+    );
+  }
+
   if (block.type === "table") {
     return (
       <figure className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">

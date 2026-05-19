@@ -13,6 +13,17 @@ export type PostBlock =
       text: string;
     }
   | {
+      type: "image";
+      alt: string;
+      src: string;
+      caption?: string;
+    }
+  | {
+      type: "code";
+      language?: string;
+      text: string;
+    }
+  | {
       type: "table";
       caption?: string;
       headers: string[];
@@ -245,6 +256,38 @@ function parseMarkdown(markdown: string): PostBlock[] {
       continue;
     }
 
+    if (line.startsWith("```")) {
+      const language = line.replace(/^```/, "").trim() || undefined;
+      const codeLines: string[] = [];
+      index += 1;
+
+      while (index < lines.length && !lines[index].trim().startsWith("```")) {
+        codeLines.push(lines[index]);
+        index += 1;
+      }
+
+      if (index < lines.length) {
+        index += 1;
+      }
+
+      blocks.push({ type: "code", language, text: codeLines.join("\n") });
+      continue;
+    }
+
+    const imageMatch = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+
+    if (imageMatch) {
+      const alt = imageMatch[1].trim();
+      blocks.push({
+        type: "image",
+        alt,
+        src: imageMatch[2].trim(),
+        caption: alt || undefined,
+      });
+      index += 1;
+      continue;
+    }
+
     if (line.startsWith("- ")) {
       const items: string[] = [];
 
@@ -277,6 +320,8 @@ function parseMarkdown(markdown: string): PostBlock[] {
       index < lines.length &&
       lines[index].trim() &&
       !lines[index].trim().startsWith("## ") &&
+      !lines[index].trim().startsWith("```") &&
+      !lines[index].trim().match(/^!\[([^\]]*)\]\(([^)]+)\)$/) &&
       !lines[index].trim().startsWith("- ") &&
       !isTableStart(lines, index)
     ) {
