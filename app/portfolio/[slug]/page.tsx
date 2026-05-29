@@ -77,8 +77,30 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
               target="_blank"
               rel="noreferrer"
             >
-              公開ページを見る
+              Web版を開く
             </Link>
+          ) : null}
+
+          {project.downloads?.length ? (
+            <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+              <p className="text-xs font-black uppercase tracking-normal text-slate-500">Desktop</p>
+              <div className="mt-4 grid gap-3">
+                {project.downloads.map((download) => (
+                  <div className="grid gap-2" key={download.href}>
+                    <a
+                      className="inline-flex min-h-11 items-center justify-center rounded-md bg-slate-950 px-5 text-center font-black text-white transition hover:bg-slate-800"
+                      href={download.href}
+                      download
+                    >
+                      {download.label}
+                    </a>
+                    {download.note ? (
+                      <p className="text-sm leading-6 text-slate-600">{download.note}</p>
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+            </section>
           ) : null}
 
           <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">

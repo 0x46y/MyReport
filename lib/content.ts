@@ -52,6 +52,11 @@ export type Project = {
   summary: string;
   points: string[];
   url?: string;
+  downloads?: {
+    label: string;
+    href: string;
+    note?: string;
+  }[];
   body?: PostBlock[];
 };
 
@@ -64,16 +69,23 @@ export const allPosts = [...reports, ...notes].sort((a, b) => b.date.localeCompa
 export const projects: Project[] = [
   {
     slug: "idea-canvas-web",
-    name: "Idea Canvas Web",
-    type: "Interactive web app",
+    name: "Idea Canvas Web / Desktop",
+    type: "Web / Desktop app",
     summary:
-      "カードを動的に並び替えながら、アイデアや検討事項をブラウザ上で整理するWebアプリ。",
-    points: ["Next.js", "React", "Browser storage", "Cloudflare Workers"],
+      "カードを動的に並び替えながら、アイデアや検討事項をブラウザとローカルのデスクトップ環境で整理するアプリ。",
+    points: ["Next.js", "React", "TypeScript", "Tauri v2", "Cloudflare Workers"],
     url: "https://idea-canvas-web.ysmyapp.workers.dev/",
+    downloads: [
+      {
+        label: "Windows版をダウンロード",
+        href: "/downloads/idea-canvas_0.1.0_x64_en-US.msi",
+        note: "Portfolio preview / Windows installer",
+      },
+    ],
     body: [
       {
         type: "paragraph",
-        text: "Idea Canvas Web は、アイデアや検討事項をカードとして並べ、ブラウザ上で動的に整理できるWebアプリです。単にテキストを入力して一覧表示するだけではなく、カードを対話的に動かしながら、考えを整理することを目的にしています。",
+        text: "Idea Canvas は、アイデアや検討事項をカードとして並べ、ブラウザ上でもローカルのデスクトップアプリとしても動かせるようにした整理ツールです。単にテキストを入力して一覧表示するだけではなく、カードを対話的に動かしながら、考えを整理することを目的にしています。",
       },
       {
         type: "heading",
@@ -84,10 +96,28 @@ export const projects: Project[] = [
         headers: ["項目", "内容"],
         rows: [
           ["公開URL", "[https://idea-canvas-web.ysmyapp.workers.dev/](https://idea-canvas-web.ysmyapp.workers.dev/)"],
+          ["Windows版", "[idea-canvas_0.1.0_x64_en-US.msi](/downloads/idea-canvas_0.1.0_x64_en-US.msi)"],
           ["目的", "アイデアや検討事項をカードとして整理する"],
-          ["主な技術", "Next.js、React、Cloudflare Workers"],
-          ["保存方法", "ブラウザ側の保存領域を利用"],
+          ["主な技術", "Next.js、React、TypeScript、Tauri v2、Cloudflare Workers"],
+          ["保存方法", "Web版はブラウザ側の保存領域を利用。Desktop版はローカル環境で動作するWindowsアプリとしてビルド"],
+          ["入出力", "JSON形式の保存・読み込み、テキスト / Markdownとして扱いやすい形式での出力に対応"],
           ["想定用途", "アイデア整理、タスク分類、検討メモ、簡易ブレインストーミング"],
+        ],
+      },
+      {
+        type: "heading",
+        text: "Web版とDesktop版",
+      },
+      {
+        type: "paragraph",
+        text: "Web版はブラウザからすぐに触れる公開デモとして用意し、Desktop版は同じアイデア整理ツールをTauri v2でWindows向けにパッケージ化しました。ポートフォリオでは、Webアプリを公開するだけでなく、ローカルで起動できるデスクトップアプリとして配布可能な形まで作れることを示すために、Windowsインストーラーも掲載しています。",
+      },
+      {
+        type: "table",
+        headers: ["版", "役割", "見せたい点"],
+        rows: [
+          ["Web版", "ブラウザで動く公開デモ", "Cloudflare Workers上にデプロイし、URLからすぐ試せること"],
+          ["Desktop版", "ローカルで起動するWindowsアプリ", "Tauri v2でインストーラー形式にビルドし、ブラウザ外のアプリとして配布できること"],
         ],
       },
       {
@@ -126,8 +156,10 @@ export const projects: Project[] = [
         type: "list",
         items: [
           "Next.js と React で動的なWebアプリを作れること",
+          "Tauri v2 を使ってWeb技術ベースのUIをデスクトップアプリとしてビルドできること",
           "カード型UIのような対話的な画面を構築できること",
           "ユーザー操作に応じて状態を更新できること",
+          "整理した内容をJSONで保存・読み込みし、テキスト / Markdownとして再利用しやすく出力できること",
           "Cloudflare Workers に公開して、実際に触れる形でデプロイできること",
           "DBを使う場合と使わない場合の設計判断ができること",
         ],
@@ -141,8 +173,6 @@ export const projects: Project[] = [
         items: [
           "カードの色やカテゴリ分け",
           "キーワード検索",
-          "エクスポート / インポート",
-          "JSON や Markdown 形式での保存",
           "複数キャンバスの管理",
           "必要になった場合の Supabase 連携",
         ],
