@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body>
         <header className="sticky top-0 z-10 flex flex-col gap-4 border-b border-slate-900/10 bg-stone-50/90 px-5 py-4 backdrop-blur md:flex-row md:items-center md:justify-between md:px-12 lg:px-16">
           <Link className="text-lg font-black tracking-normal text-slate-950" href="/">
