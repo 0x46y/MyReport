@@ -4,13 +4,7 @@
 
 This site is not a generic technology blog. It is a personal archive for technical investigation, feasibility assessment, automation, AI/cloud evaluation, and decision support.
 
-This site should stay focused on technical topics. Creative work, music, generative art, social criticism, philosophy, psychology, and political commentary should not be mixed into this site unless they are directly needed to explain a technical decision.
-
-Related site separation:
-
-- MyReport: technical investigation, feasibility assessment, automation, CAD, AI, cloud, operations, decision support
-- Creative Lab Notes: creative experiments, music, generative AI creation, prototypes, ideas, UI/worldbuilding
-- Critical Notes: social criticism, philosophy, psychology, labor, society, politics, broader reflection
+This site should stay focused on technical topics. Non-technical personal essays, creative activity logs, and broad opinion pieces should not be mixed into this site unless they are directly needed to explain a technical decision.
 
 The main purpose is to help readers understand:
 
@@ -41,7 +35,7 @@ Avoid:
 - technology hype
 - saying only "できない" without explaining conditions or alternatives
 - overusing "思う" when the article should state a technical position
-- mixing creative or social criticism themes into technical reports
+- mixing non-technical personal themes into technical reports
 
 Good framing:
 
@@ -108,7 +102,7 @@ When discussing risk, keep the article useful to companies and engineers.
 
 Do not make the message "this cannot be done." Make the message "this can work if these conditions are satisfied; otherwise, these risks and alternatives should be discussed."
 
-When discussing organizational or business problems, keep the article constructive. Avoid turning technical notes into social criticism. If the main topic becomes labor, society, evaluation, politics, or philosophy, move it to Critical Notes instead of MyReport.
+When discussing organizational or business problems, keep the article constructive and focused on technical decision-making. If the main topic is no longer a technical decision, do not include it in MyReport.
 
 Useful pattern:
 
@@ -137,19 +131,11 @@ Use MyReport for:
 - "PoCを本番導入につなげるために確認すること"
 - "作れることと運用できることの違い"
 
-Move to Creative Lab Notes:
+Do not use MyReport for:
 
-- music app ideas
-- AI music generation experiments
-- creative coding where the main value is expression or enjoyment
-- UI/worldbuilding ideas for creative projects
-
-Move to Critical Notes:
-
-- social criticism
-- philosophy or psychology
-- labor and organizational criticism as the main topic
-- political or structural analysis
+- personal activity logs where the main value is not technical decision-making
+- broad opinion pieces where the main topic is not implementation, operation, cost, dependency, or feasibility
+- creative experiments where the main value is expression rather than technical investigation
 
 If a topic overlaps, keep MyReport focused on the technical decision: constraints, costs, dependencies, operation, alternatives, and evidence.
 

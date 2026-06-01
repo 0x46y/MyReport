@@ -19,8 +19,6 @@ Next.js の static export で生成した静的ファイルを、Cloudflare Work
 
 AIに記事作成や推敲を依頼するときの詳細な方針は `AGENTS.md` にまとめています。
 
-このサイトでは技術系の記事に絞ります。創作、音楽、生成AIによる表現実験は Creative Lab Notes、社会批評や哲学・心理学寄りの考察は Critical Notes に分けます。
-
 ## Features
 
 - Next.js App Router
