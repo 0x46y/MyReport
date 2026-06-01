@@ -31,13 +31,7 @@ export default function Home() {
               className="inline-flex min-h-11 items-center justify-center rounded-md bg-white px-5 font-black text-teal-950 transition hover:bg-amber-100"
               href="/articles"
             >
-              記事を検索する
-            </Link>
-            <Link
-              className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/80 px-5 font-black text-white transition hover:bg-white/10"
-              href="/reports"
-            >
-              技術レポートを見る
+              技術ノートを探す
             </Link>
             <Link
               className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/80 px-5 font-black text-white transition hover:bg-white/10"
@@ -64,7 +58,7 @@ export default function Home() {
             className="mt-5 inline-flex font-black text-teal-700 underline-offset-4 hover:underline"
             href="/articles"
           >
-            全記事を見る
+            技術ノート一覧を見る
           </Link>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
