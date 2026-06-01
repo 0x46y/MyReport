@@ -29,6 +29,12 @@ export default function Home() {
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
               className="inline-flex min-h-11 items-center justify-center rounded-md bg-white px-5 font-black text-teal-950 transition hover:bg-amber-100"
+              href="/articles"
+            >
+              記事を検索する
+            </Link>
+            <Link
+              className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/80 px-5 font-black text-white transition hover:bg-white/10"
               href="/reports"
             >
               技術レポートを見る
