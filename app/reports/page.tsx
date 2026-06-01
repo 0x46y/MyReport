@@ -3,6 +3,7 @@ import { reports } from "@/lib/content";
 
 export const metadata = {
   title: "Reports | My Report",
+  description: "技術調査、実現可能性検証、制約、リスク、判断材料を整理したレポート一覧。",
 };
 
 export default function ReportsPage() {
@@ -16,7 +17,8 @@ export default function ReportsPage() {
           技術レポート
         </h1>
         <p className="mt-5 text-lg leading-9 text-slate-600">
-          実装メモ、検証、失敗した選択肢、次に試すことをまとめます。
+          技術調査、実現可能性検証、制約、リスク、判断材料を整理した長めの記録です。
+          「作れるか」だけでなく、なぜ難しいのか、どこで判断すべきかも残します。
         </p>
       </div>
       <div className="grid gap-4">

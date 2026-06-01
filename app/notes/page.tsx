@@ -3,6 +3,7 @@ import { notes } from "@/lib/content";
 
 export const metadata = {
   title: "Notes | My Report",
+  description: "技術記事で使う用語、短い補足、あとから参照したいメモをまとめる場所。",
 };
 
 export default function NotesPage() {
@@ -10,13 +11,13 @@ export default function NotesPage() {
     <main className="px-5 py-14 md:px-12 md:py-20 lg:px-24">
       <div className="mb-9 max-w-3xl">
         <p className="mb-3 text-xs font-black uppercase tracking-normal text-amber-700">
-          Opinion notes
+          Reference notes
         </p>
         <h1 className="text-4xl font-black tracking-normal text-slate-950 md:text-6xl">
-          個人的なノート
+          補助ノート
         </h1>
         <p className="mt-5 text-lg leading-9 text-slate-600">
-          技術と直接関係しない考え、違和感、短い日記を置く場所です。
+          技術記事で使う用語、短い補足、あとから参照したいメモを置く場所です。
         </p>
       </div>
       <div className="grid gap-4">

@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "My Report",
   description:
-    "このサイトは、個人的な技術レポート、制作物、ポートフォリオ、意見記事をまとめた個人サイトです。",
+    "技術調査、実現可能性検証、業務自動化、AI・クラウド活用について整理する個人技術ノートです。",
 };
 
 const navItems = [
@@ -14,7 +14,6 @@ const navItems = [
   { href: "/reports", label: "Reports" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/profile", label: "Profile" },
-  { href: "/r2-image-test", label: "R2 Demo" },
   { href: "/notes", label: "Notes" },
 ];
 
@@ -44,7 +43,7 @@ export default function RootLayout({
         {children}
         <footer className="border-t border-slate-900/10 px-5 py-7 text-sm text-slate-500 md:px-12 lg:px-16">
           <p>
-            このサイトは、個人的な技術レポート、制作物、ポートフォリオ、意見記事をまとめた個人サイトです。
+            技術調査、実現可能性検証、業務自動化、AI・クラウド活用について整理する個人技術ノートです。
           </p>
         </footer>
       </body>

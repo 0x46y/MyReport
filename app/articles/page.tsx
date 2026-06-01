@@ -4,7 +4,7 @@ import { Suspense } from "react";
 
 export const metadata = {
   title: "Articles | My Report",
-  description: "All reports and notes published on My Report.",
+  description: "技術レポート、補助ノート、ポートフォリオに関連する記事一覧。",
 };
 
 export default function ArticlesPage() {
@@ -22,7 +22,7 @@ export default function ArticlesPage() {
           記事一覧
         </h1>
         <p className="mt-5 text-lg leading-9 text-slate-600">
-          技術レポート、検証メモ、個人的なノートを新しい順にまとめています。
+          技術調査や実現可能性検証を整理した Reports、用語や短い補足を置く Notes を新しい順にまとめています。
         </p>
       </div>
 

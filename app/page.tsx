@@ -13,28 +13,31 @@ export default function Home() {
       >
         <div className="max-w-3xl">
           <p className="mb-3 text-xs font-black uppercase tracking-normal text-amber-200">
-            Personal reports and portfolio
+            Technical investigation notes
           </p>
           <h1 className="text-4xl font-black leading-[1.08] tracking-normal md:text-6xl lg:text-7xl">
-            技術と制作の記録を、
+            技術調査と
             <br />
-            あとから読み返せる形で残す。
+            実現可能性検証の
+            <br />
+            記録。
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-9 text-white/85">
-            このサイトは、個人的な技術レポート、制作物、ポートフォリオ、意見記事をまとめた個人サイトです。
+            業務自動化、CAD、AI、クラウド活用について、
+            「作れるか」だけでなく、制約・コスト・運用・判断条件まで整理するための技術ノートです。
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
               className="inline-flex min-h-11 items-center justify-center rounded-md bg-white px-5 font-black text-teal-950 transition hover:bg-amber-100"
-              href="/articles"
+              href="/reports"
             >
-              Browse articles
+              技術レポートを見る
             </Link>
             <Link
               className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/80 px-5 font-black text-white transition hover:bg-white/10"
-              href="/portfolio"
+              href="/profile"
             >
-              View portfolio
+              プロフィールを見る
             </Link>
           </div>
         </div>
@@ -46,8 +49,11 @@ export default function Home() {
             Latest writing
           </p>
           <h2 className="text-3xl font-black tracking-normal text-slate-950 md:text-5xl">
-            最近のレポートとノート
+            最近の技術レポートとノート
           </h2>
+          <p className="mt-5 text-lg leading-9 text-slate-600">
+            調査したこと、詰まりやすい制約、判断材料として残しておきたい内容を新しい順に並べています。
+          </p>
           <Link
             className="mt-5 inline-flex font-black text-teal-700 underline-offset-4 hover:underline"
             href="/articles"
@@ -78,15 +84,46 @@ export default function Home() {
       </section>
 
       <section className="border-t border-slate-200 px-5 py-16 md:px-12 md:py-20 lg:px-24">
+        <div className="mb-8 max-w-3xl">
+          <p className="mb-3 text-xs font-black uppercase tracking-normal text-amber-700">
+            Sections
+          </p>
+          <h2 className="text-3xl font-black tracking-normal text-slate-950 md:text-5xl">
+            読む場所の使い分け
+          </h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          <Link className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:border-teal-500 hover:shadow-md" href="/reports">
+            <h3 className="text-2xl font-black tracking-normal text-slate-950">Reports</h3>
+            <p className="mt-3 leading-8 text-slate-600">
+              技術調査、実現可能性検証、制約、リスク、判断材料を整理する長めの記録です。
+            </p>
+          </Link>
+          <Link className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:border-teal-500 hover:shadow-md" href="/portfolio">
+            <h3 className="text-2xl font-black tracking-normal text-slate-950">Portfolio</h3>
+            <p className="mt-3 leading-8 text-slate-600">
+              作ったものを、目的、使った技術、公開形態、今後の改善に分けて見せる場所です。
+            </p>
+          </Link>
+          <Link className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:border-teal-500 hover:shadow-md" href="/notes">
+            <h3 className="text-2xl font-black tracking-normal text-slate-950">Notes</h3>
+            <p className="mt-3 leading-8 text-slate-600">
+              記事で使う用語、短いメモ、あとから参照したい補助情報を置く場所です。
+            </p>
+          </Link>
+        </div>
+      </section>
+
+      <section className="border-t border-slate-200 px-5 py-16 md:px-12 md:py-20 lg:px-24">
         <div className="max-w-3xl">
           <p className="mb-3 text-xs font-black uppercase tracking-normal text-amber-700">
             Portfolio
           </p>
           <h2 className="text-3xl font-black tracking-normal text-slate-950 md:text-5xl">
-            制作物の目的と学びを整理する
+            作ったものも、判断材料として残す
           </h2>
           <p className="mt-5 text-lg leading-9 text-slate-600">
-            作ったものを単なるリンク集にせず、目的や実装の判断、詰まった点や次の改善案まで残しています。
+            作ったものを単なるリンク集にせず、目的、実装時の判断、詰まった点、配布方法、次の改善案まで残しています。
           </p>
           <Link
             className="mt-5 inline-flex font-black text-teal-700 underline-offset-4 hover:underline"

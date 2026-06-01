@@ -1,6 +1,8 @@
 # My Report
 
-個人的な技術レポート、制作物、ポートフォリオ、意見記事をまとめた個人サイトです。
+MyReport は、技術調査、実現可能性検証、業務自動化、AI・クラウド活用に関する個人技術ノートです。
+
+単なる制作物紹介ではなく、なぜ難しいのか、どこが制約になるのか、どこで判断すべきかを記録することを目的にしています。
 
 Next.js の static export で生成した静的ファイルを、Cloudflare Workers Assets として公開しています。
 
@@ -11,6 +13,7 @@ Next.js の static export で生成した静的ファイルを、Cloudflare Work
 - Markdown based articles
 - Article search, sorting, tag filtering, and pagination
 - Portfolio page
+- Profile page
 - Cloudflare R2 image demo page
 - Cloudflare Workers Assets deployment
 
@@ -28,10 +31,11 @@ Next.js の static export で生成した静的ファイルを、Cloudflare Work
 
 - `/` - Home
 - `/articles` - All articles with search and filters
-- `/reports` - Technical reports
-- `/notes` - Notes
-- `/portfolio` - Portfolio
-- `/r2-image-test` - Cloudflare R2 image reference demo
+- `/reports` - 技術調査、実現可能性検証、制約、リスク、判断材料を整理する長めの記録
+- `/notes` - 用語、短い補足、あとから参照したい補助メモ
+- `/portfolio` - 制作物の目的、技術、公開形態、改善点を整理するページ
+- `/profile` - 技術調査、実現可能性検証、業務自動化を中心にしたプロフィール
+- `/r2-image-test` - Cloudflare R2 image reference demo. Public navigation には出していない検証用ページ
 
 ## Content
 
