@@ -13,6 +13,7 @@ const navItems = [
   { href: "/articles", label: "Articles" },
   { href: "/reports", label: "Reports" },
   { href: "/portfolio", label: "Portfolio" },
+  { href: "/profile", label: "Profile" },
   { href: "/r2-image-test", label: "R2 Demo" },
   { href: "/notes", label: "Notes" },
 ];
