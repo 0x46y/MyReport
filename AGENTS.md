@@ -4,6 +4,14 @@
 
 This site is not a generic technology blog. It is a personal archive for technical investigation, feasibility assessment, automation, AI/cloud evaluation, and decision support.
 
+This site should stay focused on technical topics. Creative work, music, generative art, social criticism, philosophy, psychology, and political commentary should not be mixed into this site unless they are directly needed to explain a technical decision.
+
+Related site separation:
+
+- MyReport: technical investigation, feasibility assessment, automation, CAD, AI, cloud, operations, decision support
+- Creative Lab Notes: creative experiments, music, generative AI creation, prototypes, ideas, UI/worldbuilding
+- Critical Notes: social criticism, philosophy, psychology, labor, society, politics, broader reflection
+
 The main purpose is to help readers understand:
 
 - what conditions must be satisfied for a technical idea to work
@@ -19,6 +27,7 @@ Use Japanese for public article content unless the existing file is clearly Engl
 Prefer:
 
 - conclusion first
+- real experience and concrete investigation over generic explanation
 - practical and business-aware tone
 - concrete constraints and examples
 - neutral wording toward vendors, customers, engineers, and organizations
@@ -32,6 +41,7 @@ Avoid:
 - technology hype
 - saying only "できない" without explaining conditions or alternatives
 - overusing "思う" when the article should state a technical position
+- mixing creative or social criticism themes into technical reports
 
 Good framing:
 
@@ -57,6 +67,14 @@ For reports in `content/reports`, use this structure when it fits:
 5. 代替案や成立条件
 6. まとめ
 
+When discussing a tool, platform, architecture, library, or service, include the decision record where possible:
+
+- 採用した理由
+- 採用しなかった案
+- トレードオフ
+- 成立条件
+- 運用時に確認すること
+
 Each article should ideally include an early sentence that states the core point clearly.
 
 Example:
@@ -81,12 +99,16 @@ The site should keep developing these themes:
 - 外部製品やAPIへの依存
 - 受け入れ条件と業務判断
 - 運用、保守、責任分界点
+- 採用・不採用の判断理由
+- 技術調査の成果をどう可視化するか
 
 ## Tone About Risk
 
 When discussing risk, keep the article useful to companies and engineers.
 
 Do not make the message "this cannot be done." Make the message "this can work if these conditions are satisfied; otherwise, these risks and alternatives should be discussed."
+
+When discussing organizational or business problems, keep the article constructive. Avoid turning technical notes into social criticism. If the main topic becomes labor, society, evaluation, politics, or philosophy, move it to Critical Notes instead of MyReport.
 
 Useful pattern:
 
@@ -104,6 +126,32 @@ Useful pattern:
 - `content/reports`: long-form technical investigation and feasibility notes
 - `content/notes`: glossary, short reference notes, supplemental explanations
 - `content/portfolio`: project writeups that explain purpose, implementation choices, distribution, and future improvements
+
+## Boundary Rules
+
+Use MyReport for:
+
+- "AI導入前に確認したい条件"
+- "Cloudflare Workersを採用した理由と採用しなかった案"
+- "CAD自動化で先に確認したい制約"
+- "PoCを本番導入につなげるために確認すること"
+- "作れることと運用できることの違い"
+
+Move to Creative Lab Notes:
+
+- music app ideas
+- AI music generation experiments
+- creative coding where the main value is expression or enjoyment
+- UI/worldbuilding ideas for creative projects
+
+Move to Critical Notes:
+
+- social criticism
+- philosophy or psychology
+- labor and organizational criticism as the main topic
+- political or structural analysis
+
+If a topic overlaps, keep MyReport focused on the technical decision: constraints, costs, dependencies, operation, alternatives, and evidence.
 
 ## Implementation Notes
 
