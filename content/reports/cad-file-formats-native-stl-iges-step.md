@@ -6,6 +6,8 @@ category: "3D CAD"
 tags: "3d, cad, catia, catpart, catproduct, stl, iges, step"
 ---
 
+結論から言うと、3Dファイルは「見た目が同じなら同じデータ」ではない。
+
 3Dデータを扱う自動化では、ファイル形式の違いがそのままできることの違いになる。
 
 同じ「3Dファイル」でも、CATPart、CATProduct、STL、IGES、STEPでは持っている情報が違う。見た目として同じ形状に見えても、内部に残っている設計情報、履歴、曲面、ソリッド性、アセンブリ構造、属性情報は大きく違う。
