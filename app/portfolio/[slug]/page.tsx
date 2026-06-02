@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { renderInlineMarkdown } from "@/app/components/RichInlineMarkdown";
 import { getProjectBySlug, projects, type PostBlock } from "@/lib/content";
 
 type PageProps = {
@@ -122,6 +123,10 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
 
 function PortfolioBlock({ block }: { block: PostBlock }) {
   if (block.type === "heading") {
+    if (block.level === 3) {
+      return <h3 className="mt-3 text-2xl font-black tracking-normal text-slate-900">{block.text}</h3>;
+    }
+
     return <h2 className="mt-6 text-3xl font-black tracking-normal text-slate-950">{block.text}</h2>;
   }
 
@@ -188,28 +193,4 @@ function PortfolioBlock({ block }: { block: PostBlock }) {
   }
 
   return <p>{renderInlineMarkdown(block.text)}</p>;
-}
-
-function renderInlineMarkdown(text: string) {
-  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
-
-  return parts.map((part) => {
-    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-
-    if (!match) {
-      return part;
-    }
-
-    return (
-      <a
-        className="font-bold text-teal-700 underline-offset-4 hover:underline"
-        href={match[2]}
-        key={part}
-        rel="noreferrer"
-        target="_blank"
-      >
-        {match[1]}
-      </a>
-    );
-  });
 }

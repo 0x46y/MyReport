@@ -11,6 +11,7 @@ export type PostBlock =
   | {
       type: "heading";
       text: string;
+      level?: 2 | 3;
     }
   | {
       type: "image";
@@ -280,8 +281,14 @@ function parseMarkdown(markdown: string): PostBlock[] {
       continue;
     }
 
-    if (line.startsWith("## ")) {
-      blocks.push({ type: "heading", text: line.replace(/^##\s+/, "") });
+    const headingMatch = line.match(/^(#{2,3})\s+(.+)$/);
+
+    if (headingMatch) {
+      blocks.push({
+        type: "heading",
+        text: headingMatch[2],
+        level: headingMatch[1].length as 2 | 3,
+      });
       index += 1;
       continue;
     }
@@ -349,7 +356,7 @@ function parseMarkdown(markdown: string): PostBlock[] {
     while (
       index < lines.length &&
       lines[index].trim() &&
-      !lines[index].trim().startsWith("## ") &&
+      !lines[index].trim().match(/^#{2,3}\s+(.+)$/) &&
       !lines[index].trim().startsWith("```") &&
       !lines[index].trim().match(/^!\[([^\]]*)\]\(([^)]+)\)$/) &&
       !lines[index].trim().startsWith("- ") &&
