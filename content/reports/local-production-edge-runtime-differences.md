@@ -10,6 +10,8 @@ tags: "cloud, nextjs, cloudflare, vercel, edge-runtime, stripe, production"
 
 特に、Next.js、Cloudflare Workers、Vercel、Stripe Webhook、Edge Runtime、Node.js Runtime のように、実行環境やリクエスト処理が関係する機能では、ローカルと本番で差が出ることがある。
 
+Webhook、OAuth、raw body、Edge Runtime、Node.js Runtime などの用語は [開発・クラウド・CADの記事で使う用語メモ](/notes/system-development-terms) に短く整理している。
+
 ## なぜ差が出るのか
 
 ローカルでは、開発用サーバー、Node.js、ローカル環境変数、手元のタイムゾーン、手元のネットワークで動いている。

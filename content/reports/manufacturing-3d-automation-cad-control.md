@@ -12,6 +12,8 @@ tags: "3d, cad, catia, solidworks, occt, freecad, webassembly, automation"
 
 この記事では、見た目の3Dと製造業の3Dの違い、CATIAやSOLIDWORKSのような商用CADを自動化するときに詰まりやすい点、そしてOCCTやWebAssemblyのような技術を使ってどこまで自分たちで制御できるかについて整理する。
 
+B-Rep、ソリッド、ジオメトリ、アセンブリ、PoC などの用語は [開発・クラウド・CADの記事で使う用語メモ](/notes/system-development-terms) に短く整理している。
+
 ## 3Dには大きく2種類ある
 
 3Dには大きく分けて、見た目を重視する3Dと、設計データとしての正しさを重視する3Dがある。

@@ -14,6 +14,8 @@ tags: "3d, cad, catia, catpart, catproduct, stl, iges, step"
 
 この記事では、製造業の3D自動化でよく出てくる形式を、自動化や変換の観点で整理する。
 
+アセンブリ、B-Rep、メッシュ、ソリッド、フィーチャー、パラメトリックなどの用語は [開発・クラウド・CADの記事で使う用語メモ](/notes/system-development-terms) に短く整理している。
+
 ## 形式ごとに役割が違う
 
 | 形式 | 主な位置づけ | 特徴 |
