@@ -31,6 +31,10 @@ const glossaryTerms: GlossaryTerm[] = [
     description: "画像、動画、音声、バックアップなどのファイルをオブジェクト単位で保存するストレージ。",
   },
   {
+    term: "データウェアハウス",
+    description: "過去データを集めて分析するための基盤。通常のアプリDBとは目的が違う。",
+  },
+  {
     term: "トランザクション",
     description: "複数の処理をひとまとまりとして扱い、全部成功するか全部失敗するかを管理する仕組み。",
   },
@@ -107,8 +111,56 @@ const glossaryTerms: GlossaryTerm[] = [
     description: "RDB以外のデータベースを広く指す言葉。柔軟なデータ構造を扱いやすい場合がある。",
   },
   {
+    term: "PostgreSQL",
+    description: "オープンソースのRDB。トランザクション、JOIN、制約、JSON型などを扱える。",
+  },
+  {
+    term: "Supabase",
+    description: "PostgreSQLを中心に、認証、Storage、APIなどを組み合わせて使えるBaaS。",
+  },
+  {
+    term: "Firestore",
+    description: "FirebaseやGoogle Cloudで使えるNoSQLのドキュメントDB。",
+  },
+  {
+    term: "Firebase",
+    description: "認証、Firestore、Storage、Hostingなどを組み合わせて使えるアプリ開発向けプラットフォーム。",
+  },
+  {
+    term: "MongoDB",
+    description: "JSONに近い形のドキュメントを扱いやすいNoSQLデータベース。",
+  },
+  {
+    term: "BigQuery",
+    description: "Google Cloudのデータウェアハウス。大量データの分析や集計に向く。",
+  },
+  {
+    term: "Snowflake",
+    description: "クラウド型のデータウェアハウス。大量データの分析やBI用途で使われる。",
+  },
+  {
+    term: "SQLite",
+    description: "サーバーを立てずにファイルベースで使える軽量なRDB。ローカル検証に向く。",
+  },
+  {
+    term: "Prisma",
+    description: "TypeScriptやJavaScriptからDBを扱いやすくするORM。",
+  },
+  {
     term: "RDB",
     description: "表形式のデータを関係として扱うデータベース。整合性やJOINが重要な業務データで候補になる。",
+  },
+  {
+    term: "BaaS",
+    description: "Backend as a Service。認証、DB、Storageなどのバックエンド機能をサービスとして使う考え方。",
+  },
+  {
+    term: "ORM",
+    description: "アプリのオブジェクトとDBのテーブルを対応づけて扱う仕組み。",
+  },
+  {
+    term: "RDS",
+    description: "AWSが提供するマネージドRDBサービス。PostgreSQLやMySQLなどの運用を任せやすくする。",
   },
   {
     term: "JOIN",
