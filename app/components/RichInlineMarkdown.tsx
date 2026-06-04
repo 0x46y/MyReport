@@ -39,6 +39,10 @@ const glossaryTerms: GlossaryTerm[] = [
     description: "途中まで成功した状態を保存し、失敗時にそこから再開できるようにする考え方。",
   },
   {
+    term: "責任分界点",
+    description: "どこまでを誰が責任を持つのかを分ける境界。",
+  },
+  {
     term: "データウェアハウス",
     description: "過去データを集めて分析するための基盤。通常のアプリDBとは目的が違う。",
   },
@@ -53,6 +57,10 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "依存関係",
     description: "アプリやライブラリが動くために必要な別のソフトウェア、パッケージ、サービス、設定。",
+  },
+  {
+    term: "暗黙知",
+    description: "手順書や仕様書には明文化されていないが、現場の経験や関係者の判断として共有されている知識。",
   },
   {
     term: "ベンダーロックイン",
