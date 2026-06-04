@@ -31,6 +31,14 @@ const glossaryTerms: GlossaryTerm[] = [
     description: "画像、動画、音声、バックアップなどのファイルをオブジェクト単位で保存するストレージ。",
   },
   {
+    term: "非機能要件",
+    description: "性能、処理時間、可用性、セキュリティ、運用性など、機能そのもの以外の要件。",
+  },
+  {
+    term: "チェックポイント",
+    description: "途中まで成功した状態を保存し、失敗時にそこから再開できるようにする考え方。",
+  },
+  {
     term: "データウェアハウス",
     description: "過去データを集めて分析するための基盤。通常のアプリDBとは目的が違う。",
   },
@@ -41,6 +49,10 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "パラメトリック",
     description: "寸法や条件などのパラメータを変えることで形状を変更できる設計方法。",
+  },
+  {
+    term: "依存関係",
+    description: "アプリやライブラリが動くために必要な別のソフトウェア、パッケージ、サービス、設定。",
   },
   {
     term: "ベンダーロックイン",
@@ -73,6 +85,14 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "raw body",
     description: "HTTPリクエスト本文を加工せずにそのまま扱ったもの。Webhookの署名検証で必要になることがある。",
+  },
+  {
+    term: "README",
+    description: "リポジトリの概要、使い方、セットアップ手順、注意点などを書く説明ファイル。",
+  },
+  {
+    term: "キャッシュ",
+    description: "一度取得・生成したデータや結果を保存して、次回以降に再利用する仕組み。",
   },
   {
     term: "S3互換",
