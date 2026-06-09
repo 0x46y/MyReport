@@ -35,6 +35,12 @@ export default function Home() {
             </Link>
             <Link
               className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/80 px-5 font-black text-white transition hover:bg-white/10"
+              href="/roadmap"
+            >
+              読み方を見る
+            </Link>
+            <Link
+              className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/80 px-5 font-black text-white transition hover:bg-white/10"
               href="/profile"
             >
               プロフィールを見る
@@ -92,7 +98,13 @@ export default function Home() {
             読む場所の使い分け
           </h2>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <Link className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:border-teal-500 hover:shadow-md" href="/roadmap">
+            <h3 className="text-2xl font-black tracking-normal text-slate-950">Roadmap</h3>
+            <p className="mt-3 leading-8 text-slate-600">
+              記事を日付順ではなく、クラウド、技術調査、PoC、発注・運用の流れで読むための案内です。
+            </p>
+          </Link>
           <Link className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:border-teal-500 hover:shadow-md" href="/reports">
             <h3 className="text-2xl font-black tracking-normal text-slate-950">Reports</h3>
             <p className="mt-3 leading-8 text-slate-600">
