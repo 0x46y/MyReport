@@ -218,6 +218,38 @@ const glossaryTerms: GlossaryTerm[] = [
     term: "撤退条件",
     description: "調査やPoCを続けるか、保留するか、別案へ切り替えるかを判断するための基準。",
   },
+  {
+    term: "ドメイン",
+    description: "Webサイトの住所のようなもの。裏側のサービスを変えても同じURLを使いやすくする。",
+  },
+  {
+    term: "DNS",
+    description: "ドメイン名と接続先のサーバーやサービスを対応づける仕組み。",
+  },
+  {
+    term: "CSV",
+    description: "表形式のデータをカンマ区切りのテキストとして保存する形式。",
+  },
+  {
+    term: "JSON",
+    description: "プログラムが読み書きしやすいテキスト形式のデータ。Web APIや設定でよく使う。",
+  },
+  {
+    term: "拡張子",
+    description: "ファイル名の末尾に付く.csv、.json、.xlsxなどの文字。ファイル種類の手がかりになる。",
+  },
+  {
+    term: "請負",
+    description: "一般に成果物の完成に対して対価を支払う考え方として使われる契約類型。",
+  },
+  {
+    term: "準委任",
+    description: "一般に専門的な作業や支援を行うこと自体に対して対価を支払う考え方として使われる契約類型。",
+  },
+  {
+    term: "保守",
+    description: "公開後の不具合修正、更新、問い合わせ対応、セキュリティ対応などを行うこと。",
+  },
 ];
 
 const glossaryByTerm = new Map(glossaryTerms.map((item) => [item.term, item]));
