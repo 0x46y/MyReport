@@ -214,6 +214,10 @@ const glossaryTerms: GlossaryTerm[] = [
     term: "PoC",
     description: "Proof of Concept。実現可能性や制約を小さく確認する検証工程。",
   },
+  {
+    term: "撤退条件",
+    description: "調査やPoCを続けるか、保留するか、別案へ切り替えるかを判断するための基準。",
+  },
 ];
 
 const glossaryByTerm = new Map(glossaryTerms.map((item) => [item.term, item]));
