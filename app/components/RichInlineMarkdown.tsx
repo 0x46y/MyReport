@@ -120,11 +120,11 @@ const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: "egress",
-    description: "クラウドやストレージから外へ出ていくデータ転送。Web配信では料金に大きく影響する。",
+    description: "イーグレス。クラウドやストレージから外へ出ていくデータ転送。Web配信では料金に大きく影響する。",
   },
   {
     term: "B-Rep",
-    description: "境界表現。面、エッジ、頂点などの境界情報でソリッド形状を表す方法。",
+    description: "ビーレップ。Boundary Representation（境界表現）の略。面、エッジ、頂点の関係で3D形状を表す方法。",
   },
   {
     term: "メッシュ",
@@ -136,11 +136,11 @@ const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: "NoSQL",
-    description: "RDB以外のデータベースを広く指す言葉。柔軟なデータ構造を扱いやすい場合がある。",
+    description: "ノーエスキューエル。RDB以外のデータベースを広く指す言葉。柔軟なデータ構造を扱いやすい場合がある。",
   },
   {
     term: "PostgreSQL",
-    description: "オープンソースのRDB。トランザクション、JOIN、制約、JSON型などを扱える。",
+    description: "ポストグレスキューエル。オープンソースのRDB。トランザクション、JOIN、制約、JSON型などを扱える。",
   },
   {
     term: "Supabase",
@@ -168,7 +168,7 @@ const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: "SQLite",
-    description: "サーバーを立てずにファイルベースで使える軽量なRDB。ローカル検証に向く。",
+    description: "エスキューライト。サーバーを立てずにファイルベースで使える軽量なRDB。ローカル検証に向く。",
   },
   {
     term: "Prisma",
@@ -176,7 +176,7 @@ const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: "RDB",
-    description: "表形式のデータを関係として扱うデータベース。整合性やJOINが重要な業務データで候補になる。",
+    description: "アールディービー。表形式のデータを関係として扱うデータベース。整合性やJOINが重要な業務データで候補になる。",
   },
   {
     term: "BaaS",
@@ -196,7 +196,7 @@ const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: "IAM",
-    description: "誰がどのリソースに何をできるかを管理する仕組み。",
+    description: "アイアム。Identity and Access Managementの略。誰がどのリソースに何をできるかを管理する仕組み。",
   },
   {
     term: "SDK",
@@ -212,7 +212,7 @@ const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: "PoC",
-    description: "Proof of Concept。実現可能性や制約を小さく確認する検証工程。",
+    description: "ポック。Proof of Conceptの略。実現可能性や制約を小さく確認する検証工程。",
   },
   {
     term: "撤退条件",
@@ -223,16 +223,20 @@ const glossaryTerms: GlossaryTerm[] = [
     description: "Webサイトの住所のようなもの。裏側のサービスを変えても同じURLを使いやすくする。",
   },
   {
+    term: "サブドメイン",
+    description: "example.comの前に付けるblog.example.comなどの名前。用途ごとに入口を分けたいときに使う。",
+  },
+  {
     term: "DNS",
-    description: "ドメイン名と接続先のサーバーやサービスを対応づける仕組み。",
+    description: "ディーエヌエス。ドメイン名と接続先のサーバーやサービスを対応づける仕組み。",
   },
   {
     term: "CSV",
-    description: "表形式のデータをカンマ区切りのテキストとして保存する形式。",
+    description: "シーエスブイ。表形式のデータをカンマ区切りのテキストとして保存する形式。",
   },
   {
     term: "JSON",
-    description: "プログラムが読み書きしやすいテキスト形式のデータ。Web APIや設定でよく使う。",
+    description: "ジェイソン。プログラムが読み書きしやすいテキスト形式のデータ。Web APIや設定でよく使う。",
   },
   {
     term: "拡張子",
@@ -240,11 +244,11 @@ const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: "請負",
-    description: "一般に成果物の完成に対して対価を支払う考え方として使われる契約類型。",
+    description: "うけおい。一般に成果物の完成に対して対価を支払う考え方として使われる契約類型。",
   },
   {
     term: "準委任",
-    description: "一般に専門的な作業や支援を行うこと自体に対して対価を支払う考え方として使われる契約類型。",
+    description: "じゅんいにん。一般に専門的な作業や支援を行うこと自体に対して対価を支払う考え方として使われる契約類型。",
   },
   {
     term: "保守",
