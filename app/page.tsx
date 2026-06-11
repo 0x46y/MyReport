@@ -26,18 +26,21 @@ export default function Home() {
             業務自動化、CAD、AI、クラウド活用について、
             「作れるか」だけでなく、制約・コスト・運用・判断条件まで整理するための技術ノートです。
           </p>
+          <p className="mt-4 max-w-2xl text-base font-bold leading-8 text-amber-100">
+            初めて読む方は「おすすめの読み方」からどうぞ。
+          </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
               className="inline-flex min-h-11 items-center justify-center rounded-md bg-white px-5 font-black text-teal-950 transition hover:bg-amber-100"
               href="/articles"
             >
-              技術ノートを探す
+              記事一覧を見る
             </Link>
             <Link
               className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/80 px-5 font-black text-white transition hover:bg-white/10"
               href="/roadmap"
             >
-              読み方を見る
+              おすすめの読み方を見る
             </Link>
             <Link
               className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/80 px-5 font-black text-white transition hover:bg-white/10"

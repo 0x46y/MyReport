@@ -15,7 +15,7 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
   const [selectedTag, setSelectedTag] = useState(searchParams.get("tag") ?? "all");
   const [selectedKind, setSelectedKind] = useState("all");
   const [sortOrder, setSortOrder] = useState<SortOrder>("newest");
-  const [pageSize, setPageSize] = useState(5);
+  const [pageSize, setPageSize] = useState(posts.length);
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
   const [showAllTags, setShowAllTags] = useState(false);

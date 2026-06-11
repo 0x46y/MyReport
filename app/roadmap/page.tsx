@@ -52,20 +52,8 @@ const roadmapSections: RoadmapSection[] = [
     label: "Step 2",
     title: "技術調査とPoCの進め方を整理する",
     description:
-      "動くかどうかだけでなく、調査結果、撤退条件、本番導入前の確認事項を判断材料として残す段階です。",
+      "このサイトの中心になる段階です。動くかどうかだけでなく、PoC、本番導入、撤退条件、調査結果の見せ方を判断材料として整理します。",
     items: [
-      {
-        slug: "technical-failure-patterns-in-business-systems",
-        note: "業務システム開発で見落としやすい前提条件を先に確認する。",
-      },
-      {
-        slug: "ai-code-generation-human-checkpoints",
-        note: "AIコーディング時に、人間が確認したい情報源、環境差分、非機能要件を見る。",
-      },
-      {
-        slug: "local-production-edge-runtime-differences",
-        note: "ローカルで動くことと本番環境で動くことを分けて確認する。",
-      },
       {
         slug: "poc-success-production-adoption-risks",
         note: "PoCの成功と本番導入可能性を分けて考える。",
@@ -77,6 +65,18 @@ const roadmapSections: RoadmapSection[] = [
       {
         slug: "visualizing-technical-research-outcomes",
         note: "調査結果を、採用候補、条件付き採用、保留、撤退、別案検討として見せる。",
+      },
+      {
+        slug: "technical-failure-patterns-in-business-systems",
+        note: "業務システム開発で見落としやすい前提条件を先に確認する。",
+      },
+      {
+        slug: "ai-code-generation-human-checkpoints",
+        note: "AIコーディング時に、人間が確認したい情報源、環境差分、非機能要件を見る。",
+      },
+      {
+        slug: "local-production-edge-runtime-differences",
+        note: "ローカルで動くことと本番環境で動くことを分けて確認する。",
       },
     ],
   },
@@ -91,24 +91,28 @@ const roadmapSections: RoadmapSection[] = [
         note: "発注前に、目的、利用者、更新者、データ管理、保守、ドメインを整理する。",
       },
       {
-        slug: "system-development-beyond-technology-constraints",
-        note: "技術だけでなく、予算、契約、納期、運用費、組織の意思決定も見る。",
+        slug: "system-development-cost-increase-factors",
+        note: "発注者向けに、見積もりの桁感、費用が増える条件、見落としやすい作業を整理する。",
       },
       {
-        slug: "exploratory-development-contract-risk-agile",
-        note: "不確実性が高い開発では、合意形成と進め方を先にそろえる。",
+        slug: "system-development-beyond-technology-constraints",
+        note: "技術だけでなく、予算、契約、納期、運用費、組織の意思決定も見る。",
       },
       {
         slug: "cloud-running-cost-vendor-lockin",
         note: "ランニングコストとベンダーロックインを導入前に確認する。",
       },
+      {
+        slug: "exploratory-development-contract-risk-agile",
+        note: "不確実性が高い開発では、合意形成と進め方を先にそろえる。",
+      },
     ],
   },
   {
     label: "Step 4",
-    title: "CAD・3D自動化の制約を見る",
+    title: "CAD・3D自動化の制約を見る（専門分野）",
     description:
-      "CADや3Dデータを扱う場合に、ファイル形式、ライセンス、データ量、変換品質を先に確認する段階です。",
+      "ここからは製造業や3Dデータを扱う方向けの専門分野です。ファイル形式、ライセンス、データ量、変換品質を先に確認します。",
     items: [
       {
         slug: "manufacturing-3d-automation-cad-control",
@@ -137,7 +141,9 @@ const readerRoutes = [
       "開発を依頼する前に、目的、予算、更新者、保守、契約形態を整理したい人向けです。",
     slugs: [
       "requesting-system-development-first-decisions",
+      "system-development-cost-increase-factors",
       "system-development-beyond-technology-constraints",
+      "cloud-running-cost-vendor-lockin",
       "visualizing-technical-research-outcomes",
     ],
   },
@@ -146,10 +152,10 @@ const readerRoutes = [
     description:
       "調査結果を判断材料として残し、PoCから本番導入へ進める条件を整理したい人向けです。",
     slugs: [
-      "technical-failure-patterns-in-business-systems",
       "poc-success-production-adoption-risks",
       "technical-research-exit-criteria",
       "visualizing-technical-research-outcomes",
+      "technical-failure-patterns-in-business-systems",
     ],
   },
   {
