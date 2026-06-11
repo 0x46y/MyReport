@@ -8,7 +8,7 @@ type GlossaryTerm = {
 const glossaryTerms: GlossaryTerm[] = [
   {
     term: "Class A / Class B operations",
-    description: "Cloudflare R2などで使われる操作料金の分類。書き込み系と読み取り系で料金が分かれる。",
+    description: "操作料金の分類。Cloudflare R2などで、書き込み系と読み取り系の料金が分かれる。",
   },
   {
     term: "アベイラビリティゾーン",
@@ -16,11 +16,11 @@ const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: "Node.js Runtime",
-    description: "サーバー側でJavaScriptやTypeScriptを動かす実行環境。",
+    description: "ノードジェイエスランタイム。サーバー側でJavaScriptやTypeScriptを動かす実行環境。",
   },
   {
     term: "Edge Runtime",
-    description: "ユーザーに近い場所でコードを実行するためのランタイム。Node.jsと使えるAPIが異なる場合がある。",
+    description: "エッジランタイム。ユーザーに近い場所でコードを実行する環境。Node.jsと使えるAPIが異なる場合がある。",
   },
   {
     term: "Workers runtime",
@@ -92,11 +92,11 @@ const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: "raw body",
-    description: "HTTPリクエスト本文を加工せずにそのまま扱ったもの。Webhookの署名検証で必要になることがある。",
+    description: "ローボディ。HTTPリクエスト本文を加工せずにそのまま扱ったもの。Webhookの署名検証で必要になることがある。",
   },
   {
     term: "README",
-    description: "リポジトリの概要、使い方、セットアップ手順、注意点などを書く説明ファイル。",
+    description: "リードミー。リポジトリの概要、使い方、セットアップ手順、注意点などを書く説明ファイル。",
   },
   {
     term: "キャッシュ",
@@ -104,7 +104,7 @@ const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: "S3互換",
-    description: "Amazon S3と似たAPIで使えること。ツールを流用できる場合があるが完全同一とは限らない。",
+    description: "エススリー互換。Amazon S3と似たAPIで使えること。ツールを流用できる場合があるが完全同一とは限らない。",
   },
   {
     term: "リージョン",
@@ -144,27 +144,27 @@ const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: "Supabase",
-    description: "PostgreSQLを中心に、認証、Storage、APIなどを組み合わせて使えるBaaS。",
+    description: "スーパーベース。PostgreSQLを中心に、認証、Storage、APIなどを組み合わせて使えるBaaS。",
   },
   {
     term: "Firestore",
-    description: "FirebaseやGoogle Cloudで使えるNoSQLのドキュメントDB。",
+    description: "ファイアストア。FirebaseやGoogle Cloudで使えるNoSQLのドキュメントデータベース。",
   },
   {
     term: "Firebase",
-    description: "認証、Firestore、Storage、Hostingなどを組み合わせて使えるアプリ開発向けプラットフォーム。",
+    description: "ファイアベース。認証、Firestore、Storage、Hostingなどを組み合わせて使えるアプリ開発向けプラットフォーム。",
   },
   {
     term: "MongoDB",
-    description: "JSONに近い形のドキュメントを扱いやすいNoSQLデータベース。",
+    description: "モンゴディービー。JSONに近い形のドキュメントを扱いやすいNoSQLデータベース。",
   },
   {
     term: "BigQuery",
-    description: "Google Cloudのデータウェアハウス。大量データの分析や集計に向く。",
+    description: "ビッグクエリ。Google Cloudのデータウェアハウス。大量データの分析や集計に向く。",
   },
   {
     term: "Snowflake",
-    description: "クラウド型のデータウェアハウス。大量データの分析やBI用途で使われる。",
+    description: "スノーフレイク。クラウド型のデータウェアハウス。大量データの分析やBI用途で使われる。",
   },
   {
     term: "SQLite",
@@ -172,7 +172,7 @@ const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: "Prisma",
-    description: "TypeScriptやJavaScriptからDBを扱いやすくするORM。",
+    description: "プリズマ。TypeScriptやJavaScriptからデータベースを扱いやすくするORM。",
   },
   {
     term: "RDB",
@@ -180,7 +180,7 @@ const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: "BaaS",
-    description: "Backend as a Service。認証、DB、Storageなどのバックエンド機能をサービスとして使う考え方。",
+    description: "Backend as a Service。認証、データベース、Storageなどのバックエンド機能をサービスとして使う考え方。",
   },
   {
     term: "ORM",
@@ -208,7 +208,7 @@ const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: "SKU",
-    description: "クラウドで提供されるリソースの種類、サイズ、プランを区別する単位。",
+    description: "エスケーユー。クラウドで提供されるリソースの種類、サイズ、プランを区別する単位。",
   },
   {
     term: "PoC",

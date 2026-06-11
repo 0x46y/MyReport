@@ -4,7 +4,7 @@ import { allPosts, type Post } from "@/lib/content";
 export const metadata = {
   title: "Roadmap | My Report",
   description:
-    "MyReportの記事を、クラウド・DBの基礎、技術調査、PoC、本番導入、発注・運用の順に読むためのロードマップ。",
+    "MyReportの記事を、クラウド・データベースの基礎、技術調査、小さな検証、本番導入、発注・運用の順に読むためのロードマップ。",
 };
 
 type RoadmapItem = {
@@ -24,7 +24,7 @@ const roadmapSections: RoadmapSection[] = [
     label: "Step 1",
     title: "基礎を押さえる",
     description:
-      "クラウド、無料枠、DB、ストレージなど、個人開発や小規模な技術検証で最初に詰まりやすい前提を整理する段階です。",
+      "クラウド、無料枠、データベース、ストレージなど、個人開発や小規模な技術検証で最初に詰まりやすい前提を整理する段階です。",
     items: [
       {
         slug: "free-tier-verification-checklist",
@@ -36,7 +36,7 @@ const roadmapSections: RoadmapSection[] = [
       },
       {
         slug: "object-storage-pricing-2026",
-        note: "保存料金だけでなく、egressや操作料金まで含めて見る。",
+        note: "保存料金だけでなく、外向き転送料や操作料金まで含めて見る。",
       },
       {
         slug: "personal-development-database-selection",
@@ -50,13 +50,13 @@ const roadmapSections: RoadmapSection[] = [
   },
   {
     label: "Step 2",
-    title: "技術調査とPoCの進め方を整理する",
+    title: "技術調査と小さな検証の進め方を整理する",
     description:
-      "このサイトの中心になる段階です。動くかどうかだけでなく、PoC、本番導入、撤退条件、調査結果の見せ方を判断材料として整理します。",
+      "このサイトの中心になる段階です。動くかどうかだけでなく、小さな検証、本番導入、撤退条件、調査結果の見せ方を判断材料として整理します。",
     items: [
       {
         slug: "poc-success-production-adoption-risks",
-        note: "PoCの成功と本番導入可能性を分けて考える。",
+        note: "小さな検証で動いたことと、本番導入できることを分けて考える。",
       },
       {
         slug: "technical-research-exit-criteria",
@@ -148,9 +148,9 @@ const readerRoutes = [
     ],
   },
   {
-    title: "技術調査・PoC担当者向け",
+    title: "技術調査・検証担当者向け",
     description:
-      "調査結果を判断材料として残し、PoCから本番導入へ進める条件を整理したい人向けです。",
+      "調査結果を判断材料として残し、小さな検証から本番導入へ進める条件を整理したい人向けです。",
     slugs: [
       "poc-success-production-adoption-risks",
       "technical-research-exit-criteria",
@@ -159,9 +159,9 @@ const readerRoutes = [
     ],
   },
   {
-    title: "クラウド・DBを選びたい人向け",
+    title: "クラウド・データベースを選びたい人向け",
     description:
-      "無料枠、クラウド、ストレージ、DBの選定を小さく試しながら整理したい人向けです。",
+      "無料枠、クラウド、ストレージ、データベースの選定を小さく試しながら整理したい人向けです。",
     slugs: [
       "free-tier-verification-checklist",
       "cloud-platform-comparison-2026",
@@ -184,7 +184,7 @@ export default function RoadmapPage() {
           おすすめの読み方
         </h1>
         <p className="mt-5 text-lg leading-9 text-slate-600">
-          MyReportの記事を、クラウド・DBの基礎、技術調査、PoC、本番導入、発注・運用の順に読めるように整理しています。
+          MyReportの記事を、クラウド・データベースの基礎、技術調査、小さな検証、本番導入、発注・運用の順に読めるように整理しています。
           日付順ではなく、判断材料として使いやすい順番で読むためのページです。
         </p>
         <div className="mt-7 flex flex-wrap gap-3">

@@ -22,14 +22,14 @@ export default function ArticleSidebar({
   return (
     <aside className="grid gap-4 lg:sticky lg:top-28 lg:self-start">
       <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-        <p className="text-xs font-black uppercase tracking-normal text-slate-500">Article</p>
+        <p className="text-xs font-black uppercase tracking-normal text-slate-500">記事情報</p>
         <dl className="mt-4 grid gap-4 text-sm leading-7">
           <div>
-            <dt className="font-black text-slate-950">Type</dt>
-            <dd className="mt-1 text-slate-600">{post.kind === "reports" ? "Report" : "Note"}</dd>
+            <dt className="font-black text-slate-950">種類</dt>
+            <dd className="mt-1 text-slate-600">{post.kind === "reports" ? "レポート" : "ノート"}</dd>
           </div>
           <div>
-            <dt className="font-black text-slate-950">Published</dt>
+            <dt className="font-black text-slate-950">公開日</dt>
             <dd className="mt-1 text-slate-600">
               <time dateTime={post.date}>{post.date}</time>
             </dd>
@@ -39,7 +39,7 @@ export default function ArticleSidebar({
 
       {post.tags.length ? (
         <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-          <p className="text-xs font-black uppercase tracking-normal text-slate-500">Tags</p>
+        <p className="text-xs font-black uppercase tracking-normal text-slate-500">タグ</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {post.tags.map((tag) => (
               <Link
@@ -55,20 +55,20 @@ export default function ArticleSidebar({
       ) : null}
 
       <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-        <p className="text-xs font-black uppercase tracking-normal text-slate-500">Navigation</p>
+        <p className="text-xs font-black uppercase tracking-normal text-slate-500">移動</p>
         <div className="mt-4 grid gap-2 text-sm font-black text-teal-700">
           <Link className="underline-offset-4 hover:underline" href="/articles">
-            Articles に戻る
+            記事一覧に戻る
           </Link>
           <Link className="underline-offset-4 hover:underline" href={`/${post.kind}`}>
-            {post.kind === "reports" ? "Reports" : "Notes"} 一覧へ
+            {post.kind === "reports" ? "技術レポート" : "用語・補助ノート"} 一覧へ
           </Link>
         </div>
       </section>
 
       {relatedPosts.length ? (
         <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-          <p className="text-xs font-black uppercase tracking-normal text-slate-500">Related</p>
+          <p className="text-xs font-black uppercase tracking-normal text-slate-500">関連する記事</p>
           <div className="mt-4 grid gap-4">
             {relatedPosts.map((relatedPost) => (
               <Link

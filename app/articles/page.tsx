@@ -22,14 +22,14 @@ export default function ArticlesPage() {
           記事一覧
         </h1>
         <p className="mt-5 text-lg leading-9 text-slate-600">
-          技術調査や実現可能性検証を整理した Reports、用語や短い補足を置く Notes を新しい順にまとめています。
+          技術調査や実現可能性検証を整理したレポート、用語や短い補足を置くノートを新しい順にまとめています。
         </p>
       </div>
 
       <section className="mb-8 grid gap-4 md:grid-cols-3">
-        <SummaryCard label="All" value={allPosts.length} />
-        <SummaryCard label="Reports" value={reportsCount} />
-        <SummaryCard label="Notes" value={notesCount} />
+        <SummaryCard label="すべて" value={allPosts.length} />
+        <SummaryCard label="レポート" value={reportsCount} />
+        <SummaryCard label="ノート" value={notesCount} />
       </section>
 
       <Suspense fallback={<div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm" />}>

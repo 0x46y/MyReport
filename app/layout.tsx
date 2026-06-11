@@ -9,13 +9,13 @@ export const metadata: Metadata = {
 };
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/articles", label: "Articles" },
-  { href: "/roadmap", label: "Roadmap" },
-  { href: "/reports", label: "Reports" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/profile", label: "Profile" },
-  { href: "/notes", label: "Notes" },
+  { href: "/", label: "トップ" },
+  { href: "/articles", label: "記事一覧" },
+  { href: "/roadmap", label: "おすすめの読み方" },
+  { href: "/reports", label: "技術レポート" },
+  { href: "/portfolio", label: "ポートフォリオ" },
+  { href: "/profile", label: "プロフィール" },
+  { href: "/notes", label: "用語集" },
 ];
 
 export default function RootLayout({

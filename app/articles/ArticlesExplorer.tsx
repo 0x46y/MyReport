@@ -104,7 +104,7 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
   return (
     <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
       <aside className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-28 lg:order-2">
-        <p className="text-xs font-black uppercase tracking-normal text-slate-500">Categories</p>
+        <p className="text-xs font-black uppercase tracking-normal text-slate-500">カテゴリ</p>
         <div className="mt-4 grid gap-2">
           <button
             className={categoryButtonClass(selectedCategory === "all")}
@@ -114,7 +114,7 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
             }}
             type="button"
           >
-            <span>All</span>
+            <span>すべて</span>
             <span>{posts.length}</span>
           </button>
           {categories.map((category) => (
@@ -138,7 +138,7 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
         <div className="grid gap-4 lg:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(150px,0.6fr))]">
           <label className="grid gap-2">
-            <span className="text-xs font-black uppercase tracking-normal text-slate-500">Search</span>
+            <span className="text-xs font-black uppercase tracking-normal text-slate-500">検索</span>
             <input
               className="min-h-11 rounded-md border border-slate-300 bg-white px-3 text-base text-slate-950 outline-none transition focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
               onChange={(event) => {
@@ -152,35 +152,35 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
           </label>
 
           <SelectField
-            label="Type"
+            label="種類"
             onChange={(value) => {
               setSelectedKind(value);
               resetPage();
             }}
             value={selectedKind}
             options={[
-              { label: "All", value: "all" },
-              { label: "Reports", value: "reports" },
-              { label: "Notes", value: "notes" },
+              { label: "すべて", value: "all" },
+              { label: "レポート", value: "reports" },
+              { label: "ノート", value: "notes" },
             ]}
           />
 
           <SelectField
-            label="Sort"
+            label="並び順"
             onChange={(value) => {
               setSortOrder(value as SortOrder);
               resetPage();
             }}
             value={sortOrder}
             options={[
-              { label: "Newest", value: "newest" },
-              { label: "Oldest", value: "oldest" },
-              { label: "Title", value: "title" },
+              { label: "新しい順", value: "newest" },
+              { label: "古い順", value: "oldest" },
+              { label: "タイトル順", value: "title" },
             ]}
           />
 
           <SelectField
-            label="Per page"
+            label="表示件数"
             onChange={(value) => {
               setPageSize(Number(value));
               resetPage();
@@ -190,14 +190,14 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
               { label: "3", value: "3" },
               { label: "5", value: "5" },
               { label: "10", value: "10" },
-              { label: "All", value: String(posts.length) },
+              { label: "すべて", value: String(posts.length) },
             ]}
           />
         </div>
 
         <div className="mt-4 grid gap-4 md:grid-cols-[repeat(2,minmax(180px,0.5fr))_auto] md:items-end">
           <DateField
-            label="From"
+            label="開始日"
             onChange={(value) => {
               setDateFrom(value);
               resetPage();
@@ -205,7 +205,7 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
             value={dateFrom}
           />
           <DateField
-            label="To"
+            label="終了日"
             onChange={(value) => {
               setDateTo(value);
               resetPage();
@@ -221,14 +221,14 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
             }}
             type="button"
           >
-            Clear dates
+            日付をクリア
           </button>
         </div>
 
         <div className="mt-5 rounded-md border border-slate-200 bg-slate-50 p-4">
           <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
             <div>
-              <p className="text-xs font-black uppercase tracking-normal text-slate-500">Tags</p>
+              <p className="text-xs font-black uppercase tracking-normal text-slate-500">タグ</p>
               <p className="mt-1 text-sm text-slate-600">
                 {selectedTag === "all" ? "すべてのタグを対象にしています" : `${selectedTag} で絞り込み中`}
               </p>
@@ -239,7 +239,7 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
                 onClick={() => setShowAllTags((value) => !value)}
                 type="button"
               >
-                {showAllTags ? "Show less" : `Show all ${tags.length}`}
+                {showAllTags ? "少なく表示" : `すべて表示（${tags.length}）`}
               </button>
             ) : null}
           </div>
@@ -253,7 +253,7 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
               }}
               type="button"
             >
-              all tags
+              すべてのタグ
             </button>
             {visibleTags.map((tag) => (
               <button
@@ -279,7 +279,7 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
             {Math.min(startIndex + pageSize, filteredPosts.length)} 件を表示
           </p>
           <p>
-            Page {currentPage} / {totalPages}
+            ページ {currentPage} / {totalPages}
           </p>
         </div>
 
@@ -293,7 +293,7 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
               >
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="w-fit rounded-full border border-slate-200 px-3 py-1 text-xs font-black text-teal-900">
-                    {post.kind === "reports" ? "Report" : "Note"}
+                    {post.kind === "reports" ? "レポート" : "ノート"}
                   </span>
                   <span className="w-fit rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600">
                     {post.category}
@@ -333,7 +333,7 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
             onClick={() => setPage((value) => Math.max(1, value - 1))}
             type="button"
           >
-            Prev
+            前へ
           </button>
           <button
             className="min-h-10 rounded-md border border-slate-300 px-4 font-black text-slate-700 disabled:cursor-not-allowed disabled:opacity-40"
@@ -341,7 +341,7 @@ export default function ArticlesExplorer({ posts }: { posts: ArticleSummary[] })
             onClick={() => setPage((value) => Math.min(totalPages, value + 1))}
             type="button"
           >
-            Next
+            次へ
           </button>
         </div>
       </div>

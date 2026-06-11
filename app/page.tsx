@@ -103,25 +103,25 @@ export default function Home() {
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <Link className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:border-teal-500 hover:shadow-md" href="/roadmap">
-            <h3 className="text-2xl font-black tracking-normal text-slate-950">Roadmap</h3>
+            <h3 className="text-2xl font-black tracking-normal text-slate-950">おすすめの読み方</h3>
             <p className="mt-3 leading-8 text-slate-600">
-              記事を日付順ではなく、クラウド、技術調査、PoC、発注・運用の流れで読むための案内です。
+              記事を日付順ではなく、クラウド、技術調査、小さな検証、発注・運用の流れで読むための案内です。
             </p>
           </Link>
           <Link className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:border-teal-500 hover:shadow-md" href="/reports">
-            <h3 className="text-2xl font-black tracking-normal text-slate-950">Reports</h3>
+            <h3 className="text-2xl font-black tracking-normal text-slate-950">技術レポート</h3>
             <p className="mt-3 leading-8 text-slate-600">
               技術調査、実現可能性検証、制約、リスク、判断材料を整理する長めの記録です。
             </p>
           </Link>
           <Link className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:border-teal-500 hover:shadow-md" href="/portfolio">
-            <h3 className="text-2xl font-black tracking-normal text-slate-950">Portfolio</h3>
+            <h3 className="text-2xl font-black tracking-normal text-slate-950">ポートフォリオ</h3>
             <p className="mt-3 leading-8 text-slate-600">
               作ったものを、目的、使った技術、公開形態、今後の改善に分けて見せる場所です。
             </p>
           </Link>
           <Link className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:border-teal-500 hover:shadow-md" href="/notes">
-            <h3 className="text-2xl font-black tracking-normal text-slate-950">Notes</h3>
+            <h3 className="text-2xl font-black tracking-normal text-slate-950">用語・補助ノート</h3>
             <p className="mt-3 leading-8 text-slate-600">
               記事で使う用語、短いメモ、あとから参照したい補助情報を置く場所です。
             </p>
