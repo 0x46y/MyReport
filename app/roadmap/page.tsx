@@ -96,7 +96,7 @@ const roadmapSections: RoadmapSection[] = [
       },
       {
         slug: "system-development-beyond-technology-constraints",
-        note: "技術だけでなく、予算、契約、納期、運用費、組織の意思決定も見る。",
+        note: "技術だけでなく、予算、契約、納期、運用費、組織内の意思決定も考える理由を見る。",
       },
       {
         slug: "cloud-running-cost-vendor-lockin",
