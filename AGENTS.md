@@ -48,6 +48,73 @@ The main purpose is to help readers understand:
 
 Do not frame articles as simply proving that something is impossible. Prefer framing them as clarifying success conditions, constraints, trade-offs, and decision points.
 
+## Cross-Project Awareness
+
+This repository is part of a local three-site knowledge system.
+
+Related local projects may exist at:
+
+- `../critical-notes`
+- `../creative-lab-notes`
+
+A shared direction document may exist at:
+
+- `../shared-site-direction.md`
+
+Use the sites by purpose:
+
+- Build or technical decision: MyReport
+- Understand society, reality, cognition, incentives, or language: Critical Notes
+- Create or improve expression: Creative Lab Notes
+
+Before creating or heavily editing an article, briefly consider whether the topic belongs here or in another site.
+
+Do not add visible public navigation, homepage sections, README explanations, or article content just to expose the relationship between the sites.
+
+README may keep minimal cross-project notes when needed for development or operation, but public-facing explanations should not foreground the three-site relationship.
+
+Public pages should make sense as MyReport by itself. Keep cross-project reasoning in AGENTS.md, shared local notes, or development-only context.
+
+Do not remove existing public routes such as the profile page, portfolio page, roadmap, reports, notes, or article list only to simplify the site relationship.
+
+## Boundary With Critical Notes
+
+Use Critical Notes when the main topic is understanding society, psychology, language, incentives, organizations, or reality recognition.
+
+Use MyReport when the main topic is technical feasibility, implementation, cost, operation, dependencies, automation, or decision support.
+
+Examples:
+
+- Critical Notes: なぜ調査や撤退判断は評価されにくいのか
+- MyReport: 技術調査の成果をどう可視化するか
+- Critical Notes: 組織で責任が曖昧になる理由
+- MyReport: 不確実性が高い開発で、先に決めておきたいこと
+- Critical Notes: AI時代に人間の判断はどう変わるのか
+- MyReport: AIがコードを書く時代に人間は何を確認するのか
+
+The same theme can appear in both sites, but the purpose must be different.
+
+Understanding the phenomenon belongs to Critical Notes.
+
+Turning that understanding into technical checks, implementation constraints, cost estimates, operation rules, or decision records belongs to MyReport.
+
+## Boundary With Creative Lab Notes
+
+Use Creative Lab Notes when the main topic is creative output, creative workflow, expression, music, images, stories, or emotional effect.
+
+Use MyReport when the main topic is the technical implementation, feasibility, cost, operation, dependencies, or decision support behind a tool or workflow.
+
+Examples:
+
+- Creative Lab Notes: AI作曲ツールを創作の下書きにどう使うか
+- MyReport: AIツールのAPIコストと運用リスク
+- Creative Lab Notes: MIDI生成で作曲の試行錯誤を速くする
+- MyReport: MIDI生成ツールを実装するときの制約と判断材料
+- Creative Lab Notes: 静的サイトで創作ノートをどう見せるか
+- MyReport: Cloudflare Workers を採用した理由と運用上の制約
+
+If a topic overlaps, keep MyReport focused on the technical decision: constraints, costs, dependencies, operation, alternatives, and evidence.
+
 ## Reader First
 
 Assume the reader is intelligent but unfamiliar with the topic.
