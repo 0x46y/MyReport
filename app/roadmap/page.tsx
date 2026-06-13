@@ -67,6 +67,10 @@ const roadmapSections: RoadmapSection[] = [
         note: "調査結果を、採用候補、条件付き採用、保留、撤退、別案検討として見せる。",
       },
       {
+        slug: "ai-assisted-technical-writing-editorial-policy",
+        note: "AIと技術記事を書くときに、読者、具体例、判断材料を先に決める。",
+      },
+      {
         slug: "technical-failure-patterns-in-business-systems",
         note: "業務システム開発で見落としやすい前提条件を先に確認する。",
       },
@@ -76,7 +80,7 @@ const roadmapSections: RoadmapSection[] = [
       },
       {
         slug: "local-production-edge-runtime-differences",
-        note: "ローカルで動くことと本番環境で動くことを分けて確認する。",
+        note: "本番環境で初めて見つかる制約を、ローカル検証と分けて確認する。",
       },
     ],
   },
@@ -100,11 +104,11 @@ const roadmapSections: RoadmapSection[] = [
       },
       {
         slug: "cloud-running-cost-vendor-lockin",
-        note: "ランニングコストとベンダーロックインを導入前に確認する。",
+        note: "クラウド選定で見落としやすい運用費と依存関係を整理する。",
       },
       {
         slug: "exploratory-development-contract-risk-agile",
-        note: "不確実性が高い開発では、合意形成と進め方を先にそろえる。",
+        note: "不確実性が高い開発で、調査、責任範囲、判断タイミングを先に決める。",
       },
     ],
   },
@@ -120,15 +124,15 @@ const roadmapSections: RoadmapSection[] = [
       },
       {
         slug: "cad-file-formats-native-stl-iges-step",
-        note: "CATPart、STL、IGES、STEPが持つ情報の違いを確認する。",
+        note: "3Dファイル形式ごとに残る情報と失われる情報を整理する。",
       },
       {
         slug: "cad-license-vendor-lockin-cost-recovery",
-        note: "CADライセンスとベンダーロックインが設計判断に与える影響を見る。",
+        note: "CAD自動化でライセンスとベンダーロックインが判断に効く理由を見る。",
       },
       {
         slug: "3d-data-size-cloud-cost-test-explosion",
-        note: "3Dデータの容量、計算量、テストケースの組み合わせ爆発を確認する。",
+        note: "3Dデータ自動化で工数が増えやすい理由を整理する。",
       },
     ],
   },
@@ -155,6 +159,7 @@ const readerRoutes = [
       "poc-success-production-adoption-risks",
       "technical-research-exit-criteria",
       "visualizing-technical-research-outcomes",
+      "ai-assisted-technical-writing-editorial-policy",
       "technical-failure-patterns-in-business-systems",
     ],
   },

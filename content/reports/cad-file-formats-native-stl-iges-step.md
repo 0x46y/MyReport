@@ -1,5 +1,5 @@
 ---
-title: "CATPart、STL、IGES、STEPは同じ3Dファイルでも持っている情報が違う"
+title: "CATPart、STL、IGES、STEPは何が違うのか"
 date: "2026-05-29"
 excerpt: "CATIAのネイティブ形式、STL、IGES、STEPの違いを、製造業の3D自動化で何が扱えて何が落ちるのかという観点で整理する。"
 category: "3D CAD"
