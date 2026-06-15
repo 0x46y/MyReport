@@ -115,6 +115,52 @@ Examples:
 
 If a topic overlaps, keep MyReport focused on the technical decision: constraints, costs, dependencies, operation, alternatives, and evidence.
 
+## Reader Respect
+
+Assume readers are intelligent but may not have the same background, vocabulary, constraints, or experience.
+
+Do not write to impress readers.
+
+Do not write as if the reader is ignorant, careless, or at fault.
+
+Write to reduce confusion, support decisions, and make discussion easier.
+
+Treat gaps in knowledge as differences in role, context, and available information.
+
+## Accountability
+
+Respecting the reader does not mean avoiding responsibility, judgment, or accountability.
+
+Do not turn every problem into "everyone had circumstances, so nobody is responsible."
+
+When a technical, operational, contractual, or organizational decision creates risk, clarify:
+
+- who needed to decide
+- who needed to approve
+- who needed to provide information
+- who needed to operate or maintain it
+- what should have been recorded
+- when the issue should have been escalated
+- what conditions would require stopping, changing scope, or choosing another option
+
+Avoid blaming people casually, but do not hide decision points.
+
+Prefer wording that separates personal blame from process responsibility.
+
+Good framing:
+
+- "この時点で誰が継続判断を行うかを決めておきたい"
+- "発注側と開発側で、確認すべき情報と責任範囲を分けて整理したい"
+- "個人を責める話ではなく、判断が遅れたときにどのリスクが増えるかを見る"
+- "制約が見えた時点で、報告、警告、代替案、記録が必要になる"
+
+Avoid framing:
+
+- "発注者が悪い"
+- "現場が分かっていない"
+- "ベンダーが無能"
+- "事情があるので責任は問えない"
+
 ## Reader First
 
 Assume the reader is intelligent but unfamiliar with the topic.
@@ -190,6 +236,84 @@ Prefer articles that explain:
 - what it costs
 - what must be checked before adoption
 - what happened when it was actually tried
+
+## Writer Position And Reader Change
+
+When writing for MyReport, do not write as a textbook, vendor brochure, or one-sided lecture.
+
+Write from the position of someone who investigates, tests, explains, and organizes decision points together with the reader.
+
+The goal is not to show that the writer is smarter than the reader.
+
+The goal is to help readers:
+
+- notice a constraint they may have missed
+- avoid a common mistake
+- understand why a technical decision is not simple
+- prepare a discussion with engineers, managers, vendors, or requesters
+- decide what to check next
+- understand what conditions make an approach viable
+
+Before writing or rewriting an article, identify:
+
+- who the reader is
+- what misunderstanding or uncertainty the article addresses
+- what the reader should be able to do after reading
+- whether the article is based on direct experience, technical investigation, general explanation, or decision support
+- which concrete examples should be preserved
+
+MyReport articles may be written from several positions:
+
+1. Direct experience
+   - I tried this and ran into this issue.
+   - This looked simple at first, but became difficult because...
+
+2. Technical investigation
+   - I researched this topic to understand the constraints.
+   - The important point is not the definition, but where it affects adoption.
+
+3. Explanation for non-specialists
+   - This is a concept engineers use, but requesters may need it explained in business terms.
+   - The goal is to align assumptions before cost, schedule, operation, or responsibility is discussed.
+
+4. Decision support
+   - This approach can work if these conditions are satisfied.
+   - If these conditions are not satisfied, alternatives or further investigation should be considered.
+
+Avoid:
+
+- sounding like a teacher talking down to readers
+- presenting technical knowledge without explaining why it matters
+- writing only abstract opinions
+- turning every article into personal experience if the topic is actually a general explanation
+- making claims stronger than the evidence supports
+
+Prefer:
+
+- "実際に進めると、ここが問題になりやすい"
+- "この条件を先に確認すると相談しやすい"
+- "技術的には可能でも、運用や責任範囲で確認が必要になる"
+- "自分が試した範囲ではこうだった"
+- "一般的にはこう整理できる"
+- "発注者と開発者で見ているものが違うため、先に言葉をそろえたい"
+
+## Decision Questions
+
+A MyReport article should usually answer at least one decision question.
+
+Examples:
+
+- Should I use this approach?
+- What should I verify before adopting it?
+- What are the common failure points?
+- Under what conditions does this work?
+- When should I stop and choose another option?
+- Who needs to decide, approve, operate, or maintain it?
+- What cost, dependency, license, data, or runtime constraint changes the decision?
+
+Technical knowledge is important, but decision quality is usually the primary outcome.
+
+If an article only explains a term, tool, or service, revise it so the explanation supports a practical decision, investigation, lesson learned, or constraint.
 
 ## Writing Style
 
@@ -390,7 +514,7 @@ For example:
 - 総論記事: システム開発では技術以外に何を考えるのか
 - 個別記事: 発注者が知っておきたい開発費の考え方
 - 個別記事: 小さな検証（PoC）が成功しても本番導入できない理由
-- 個別記事: クラウドのランニングコストと依存関係は早い段階で確認したい
+- 個別記事: クラウド選定で見落としやすいコストと依存関係
 
 When the same topic appears in multiple articles, keep only the minimum context needed and link to the more detailed article.
 

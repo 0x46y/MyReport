@@ -75,6 +75,10 @@ const roadmapSections: RoadmapSection[] = [
         note: "業務システム開発で見落としやすい前提条件を先に確認する。",
       },
       {
+        slug: "japanese-text-encoding-system-development",
+        note: "日本語、CSV、Excel、旧字、文字コードで起こりやすい問題を整理する。",
+      },
+      {
         slug: "ai-code-generation-human-checkpoints",
         note: "AIコーディング時に、人間が確認したい情報源、環境差分、非機能要件を見る。",
       },
@@ -161,6 +165,7 @@ const readerRoutes = [
       "visualizing-technical-research-outcomes",
       "ai-assisted-technical-writing-editorial-policy",
       "technical-failure-patterns-in-business-systems",
+      "japanese-text-encoding-system-development",
     ],
   },
   {
