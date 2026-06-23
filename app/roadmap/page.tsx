@@ -35,6 +35,10 @@ const roadmapSections: RoadmapSection[] = [
         note: "AWS、Azure、GCP、Vercel、Cloudflareを用途と制約で比較する。",
       },
       {
+        slug: "cloudflare-project-layer-resource-management",
+        note: "Cloudflareで複数システムを運用するときのリソース、請求、権限の分け方を見る。",
+      },
+      {
         slug: "object-storage-pricing-2026",
         note: "保存料金だけでなく、外向き転送料や操作料金まで含めて見る。",
       },
@@ -67,6 +71,22 @@ const roadmapSections: RoadmapSection[] = [
         note: "調査結果を、採用候補、条件付き採用、保留、撤退、別案検討として見せる。",
       },
       {
+        slug: "document-data-reading-checkpoints",
+        note: "資料、KPI、表、グラフ、AI要約を見るときに、集計条件や見せ方も確認する。",
+      },
+      {
+        slug: "prototype-communicates-better-than-proposal",
+        note: "小さな試作品を認識合わせや見積もりの判断材料として使う理由を整理する。",
+      },
+      {
+        slug: "static-site-before-cms-migration",
+        note: "静的サイトをCMS化する前に、Git管理、AI編集、費用、運用負荷を分けて見る。",
+      },
+      {
+        slug: "why-excel-spreadsheets-remain-business-systems",
+        note: "Excelやスプレッドシートが残る理由と、管理画面やDBが必要になる条件を見る。",
+      },
+      {
         slug: "ai-assisted-technical-writing-editorial-policy",
         note: "AIと技術記事を書くときに、読者、具体例、判断材料を先に決める。",
       },
@@ -81,6 +101,14 @@ const roadmapSections: RoadmapSection[] = [
       {
         slug: "ai-code-generation-human-checkpoints",
         note: "AIコーディング時に、人間が確認したい情報源、環境差分、非機能要件を見る。",
+      },
+      {
+        slug: "ai-code-generation-design-importance",
+        note: "AIでコードを書ける時代に、データ設計、権限、運用を先に決める理由を見る。",
+      },
+      {
+        slug: "ai-training-data-for-specialized-work",
+        note: "AIに専門業務を教える前に、正解データ、形式、量、評価基準を用意できるかを見る。",
       },
       {
         slug: "local-production-edge-runtime-differences",
@@ -105,6 +133,10 @@ const roadmapSections: RoadmapSection[] = [
       {
         slug: "system-development-beyond-technology-constraints",
         note: "技術だけでなく、予算、契約、納期、運用費、組織内の意思決定も考える理由を見る。",
+      },
+      {
+        slug: "system-efficiency-risk-buffer",
+        note: "システム化で生まれた余裕を全部削らず、障害時の代替手段や手動運用も考える。",
       },
       {
         slug: "cloud-running-cost-vendor-lockin",
@@ -151,6 +183,7 @@ const readerRoutes = [
       "requesting-system-development-first-decisions",
       "system-development-cost-increase-factors",
       "system-development-beyond-technology-constraints",
+      "system-efficiency-risk-buffer",
       "cloud-running-cost-vendor-lockin",
       "visualizing-technical-research-outcomes",
     ],
@@ -163,9 +196,15 @@ const readerRoutes = [
       "poc-success-production-adoption-risks",
       "technical-research-exit-criteria",
       "visualizing-technical-research-outcomes",
+      "document-data-reading-checkpoints",
+      "prototype-communicates-better-than-proposal",
+      "static-site-before-cms-migration",
+      "why-excel-spreadsheets-remain-business-systems",
       "ai-assisted-technical-writing-editorial-policy",
       "technical-failure-patterns-in-business-systems",
       "japanese-text-encoding-system-development",
+      "ai-code-generation-design-importance",
+      "ai-training-data-for-specialized-work",
     ],
   },
   {
@@ -175,6 +214,7 @@ const readerRoutes = [
     slugs: [
       "free-tier-verification-checklist",
       "cloud-platform-comparison-2026",
+      "cloudflare-project-layer-resource-management",
       "object-storage-pricing-2026",
       "personal-development-database-selection",
     ],
