@@ -71,6 +71,10 @@ const roadmapSections: RoadmapSection[] = [
         note: "調査結果を、採用候補、条件付き採用、保留、撤退、別案検討として見せる。",
       },
       {
+        slug: "unknown-findings-as-technical-research-outcomes",
+        note: "技術調査で分からなかったことや確認できなかった条件を、次の判断材料として残す。",
+      },
+      {
         slug: "document-data-reading-checkpoints",
         note: "資料、KPI、表、グラフ、AI要約を見るときに、集計条件や見せ方も確認する。",
       },
@@ -127,12 +131,28 @@ const roadmapSections: RoadmapSection[] = [
         note: "発注前に、目的、利用者、更新者、データ管理、保守、ドメインを整理する。",
       },
       {
+        slug: "problem-before-requested-feature",
+        note: "作ってほしい画面や機能より先に、解決したい問題を共有する理由を見る。",
+      },
+      {
         slug: "system-development-cost-increase-factors",
         note: "発注者向けに、見積もりの桁感、費用が増える条件、見落としやすい作業を整理する。",
       },
       {
         slug: "system-development-beyond-technology-constraints",
         note: "技術だけでなく、予算、契約、納期、運用費、組織内の意思決定も考える理由を見る。",
+      },
+      {
+        slug: "business-system-data-responsibility",
+        note: "業務システムで、登録、確認、承認、修正、削除、復旧を誰が担当するかを見る。",
+      },
+      {
+        slug: "engineer-business-decision-boundary",
+        note: "技術者が決めることと、業務担当者や管理者が決めることの境界を見る。",
+      },
+      {
+        slug: "technical-possibility-company-adoption-gap",
+        note: "技術的にできることを会社として採用するために必要な条件を見る。",
       },
       {
         slug: "system-efficiency-risk-buffer",
@@ -167,6 +187,10 @@ const roadmapSections: RoadmapSection[] = [
         note: "CAD自動化でライセンスとベンダーロックインが判断に効く理由を見る。",
       },
       {
+        slug: "expensive-business-software-automation-checkpoints",
+        note: "高額な業務ソフトを自動化するときに、サポート、ライセンス、現場運用を先に見る。",
+      },
+      {
         slug: "3d-data-size-cloud-cost-test-explosion",
         note: "3Dデータ自動化で工数が増えやすい理由を整理する。",
       },
@@ -181,8 +205,12 @@ const readerRoutes = [
       "開発を依頼する前に、目的、予算、更新者、保守、契約形態を整理したい人向けです。",
     slugs: [
       "requesting-system-development-first-decisions",
+      "problem-before-requested-feature",
       "system-development-cost-increase-factors",
       "system-development-beyond-technology-constraints",
+      "business-system-data-responsibility",
+      "engineer-business-decision-boundary",
+      "technical-possibility-company-adoption-gap",
       "system-efficiency-risk-buffer",
       "cloud-running-cost-vendor-lockin",
       "visualizing-technical-research-outcomes",
@@ -196,6 +224,7 @@ const readerRoutes = [
       "poc-success-production-adoption-risks",
       "technical-research-exit-criteria",
       "visualizing-technical-research-outcomes",
+      "unknown-findings-as-technical-research-outcomes",
       "document-data-reading-checkpoints",
       "prototype-communicates-better-than-proposal",
       "static-site-before-cms-migration",
