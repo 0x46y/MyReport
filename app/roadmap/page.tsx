@@ -155,6 +155,10 @@ const roadmapSections: RoadmapSection[] = [
         note: "技術的にできることを会社として採用するために必要な条件を見る。",
       },
       {
+        slug: "acceptance-criteria-before-development",
+        note: "機能があることと業務で受け入れられることを分け、完成判断の条件を先に決める。",
+      },
+      {
         slug: "system-efficiency-risk-buffer",
         note: "システム化で生まれた余裕を全部削らず、障害時の代替手段や手動運用も考える。",
       },
@@ -211,6 +215,7 @@ const readerRoutes = [
       "business-system-data-responsibility",
       "engineer-business-decision-boundary",
       "technical-possibility-company-adoption-gap",
+      "acceptance-criteria-before-development",
       "system-efficiency-risk-buffer",
       "cloud-running-cost-vendor-lockin",
       "visualizing-technical-research-outcomes",
