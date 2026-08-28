@@ -5,11 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "generate:company-proposal": "node scripts/generate-company-proposal-docs.mjs",
     "preview": "wrangler dev --remote",
     "deploy": "bun run build && wrangler deploy"
   },
   "dependencies": {
+    "docx": "^9.7.1",
     "next": "^16.0.0",
+    "pptxgenjs": "^4.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

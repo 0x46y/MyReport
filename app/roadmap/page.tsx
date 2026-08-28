@@ -47,6 +47,10 @@ const roadmapSections: RoadmapSection[] = [
         note: "SQLite、Prisma、Supabase、Firebaseを個人開発の流れで使い分ける。",
       },
       {
+        slug: "why-separate-database-and-data-warehouse",
+        note: "業務DBと分析用DWHを分ける理由を、負荷、履歴、データ定義、運用から判断する。",
+      },
+      {
         slug: "nosql-rdb-selection-conditions",
         note: "NoSQLとRDBを、用途、整合性、運用の観点で選ぶ。",
       },
@@ -105,6 +109,14 @@ const roadmapSections: RoadmapSection[] = [
       {
         slug: "ai-code-generation-human-checkpoints",
         note: "AIコーディング時に、人間が確認したい情報源、環境差分、非機能要件を見る。",
+      },
+      {
+        slug: "transcription-build-vs-existing-ai",
+        note: "文字起こし機能を内製する前に、既存AIで満たせる範囲と独自開発が必要な条件を見る。",
+      },
+      {
+        slug: "local-llm-coding-agent-alternative",
+        note: "外部AIを使えない環境で、ローカルLLMを開発Agentとして成立させる条件を見る。",
       },
       {
         slug: "ai-code-generation-design-importance",
@@ -237,6 +249,8 @@ const readerRoutes = [
       "ai-assisted-technical-writing-editorial-policy",
       "technical-failure-patterns-in-business-systems",
       "japanese-text-encoding-system-development",
+      "transcription-build-vs-existing-ai",
+      "local-llm-coding-agent-alternative",
       "ai-code-generation-design-importance",
       "ai-training-data-for-specialized-work",
     ],
@@ -251,6 +265,7 @@ const readerRoutes = [
       "cloudflare-project-layer-resource-management",
       "object-storage-pricing-2026",
       "personal-development-database-selection",
+      "why-separate-database-and-data-warehouse",
     ],
   },
 ];
